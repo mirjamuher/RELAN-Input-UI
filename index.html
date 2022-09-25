@@ -1,0 +1,307 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8">
+    <!-- https://developer.mozilla.org/en-US/docs/Web/HTTP/CSP -->
+  
+    <!-- Bootstrap -->
+    <meta name="viewport" content="width=device-width, initial-scale=1">
+    <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.2.0-beta1/dist/css/bootstrap.min.css" rel="stylesheet" integrity="sha384-0evHe/X+R7YkIZDRvuzKMRqM+OrBnVFBL6DOitfPri4tjfHxaWutUpFmBp4vmVor" crossorigin="anonymous">
+    <!-- <link href="./node_modules/bootstrap/dist/css/bootstrap.min.css" rel="stylesheet"> -->
+    <!-- Our CSS file -->
+    <link href="./styles.css" rel="stylesheet">
+    <title>RELAN GUI - Create your RELAN-IN.txt file</title>
+  </head>
+
+  <body>
+
+  <div class="container">
+    <form>
+
+      <!-- R E S E T-->
+      <button type="reset" class="btn btn-primary"> R E S E T </button>
+
+      <!-- Project Title -->
+      <div class="mb-3">
+        <label for="title" class="form-label">Title:</label>
+        <input type="text" maxlength="80" class="form-control" id="title">
+        <div id="titleHelp" class="form-text"> 
+          Example: "1 Simulation of the relation: ((UUU * BBB) > WWW)) * (AAA > WWW)"
+        </div>
+      </div>    
+
+      <!-- Option -->
+      <div class="mb-3">
+        <label class="form-label">Option:</label>
+          <select class="form-select" aria-label="example value (?)">
+            <option selected>Choose one of the following</option>
+            <option value="0">Connections</option>
+            <option value="1">Implications</option>
+            <option value="2">Confirmation</option>
+            <option value="3">Simulation</option>
+          </select>
+          <div class="form-text">[explanation here]</div>
+      </div>
+
+      <!-- Data Input -->
+      <div class="mb-3">
+        <label class="form-label">Data Input:</label>
+          <select class="form-select" aria-label="example value (?)">
+            <option selected>Choose one of the following</option>
+            <option value="1">RELAN-DAT (Matrix Input)</option>
+            <option value="2">RELAN-KAT (Vector Input)</option>
+          </select>
+          <div class="form-text">[explanation here]</div>
+      </div>
+
+      <!-- Number of Variables -->
+      <div class="mb-3">
+        <label for="maxm" class="form-label">Number of Variables:</label>
+        <input type="number" class="form-control" id="maxm">
+        <div id="maxmHelp" class="form-text"> 
+          max for full version is 100, max for free license is 4
+        </div>
+      </div> 
+
+      <!-- Format of Data for RELAN-DAT -->
+      <div class="mb-3">
+        <label for="dataFormat" class="form-label">Format of Data for RELAN-DAT:</label>
+        <input type="text" maxlength="15" class="form-control" id="dataFormat">
+        <div id="formatOfDataHelp" class="form-text"> 
+          number of variables-F-field width.decimal digit [ich versteh das nicht ganz, gehoert vll
+          in das Fragezeichen Feld und hier nur ein paar Beispiele]
+        </div>
+      </div>    
+
+      <!-- Dichotomisation -->
+      <div class="mb-3">
+        <label class="form-label">Dichotomisation:</label>
+          <select class="form-select" aria-label="example value (?)">
+            <option selected>Choose one of the following</option>
+            <option value="1">Yes</option>
+            <option value="0">No</option>
+          </select>
+          <div class="form-text">[explanation here]</div>
+      </div>
+
+      <!-- Name of Variables -->
+      <div class="mb-3">
+        <label for="nameOfVars" class="form-label">Name of Variables:</label>
+        <input type="text" class="form-control" id="nameOfVars">
+        <div id="nameOfVarsHelp" class="form-text"> 
+          max 100 variables. three alphanumerical symbols, blanks as delimiters; [further explanation and/or examples]
+        </div>
+      </div> 
+
+      <!-- Vector of Dichotomisation -->
+      <div class="mb-3">
+        <label for="vectorOfDichotomisation" class="form-label">Vector of Dichotomisation:</label>
+        <input type="text" class="form-control" id="vectorOfDichotomisation">
+        <div id="vectorHelp" class="form-text"> 
+          max 100. floating point format, blanks as delimitors; [further explanation and/or examples]
+        </div>
+      </div> 
+
+      <!-- Probabilities of the Apriori Random Model -->
+      <div class="mb-3">
+        <label for="aprioriRandomModelProbabilities" class="form-label">Probabilities of the Apriori Random Model:</label>
+        <input type="text" class="form-control" id="aprioriRandomModelProbabilities">
+        <div id="aprioriRandomModelProbabilitiesHelp" class="form-text"> 
+          max 100. floating point format with blanks as delimiters; [further explanation and/or examples]
+        </div>
+      </div> 
+
+      <!-- Order of Causality -->
+      <div class="mb-3">
+        <label for="orderOfCausality" class="form-label">Order of Causality:</label>
+        <input type="text" class="form-control" id="orderOfCausality">
+        <div id="orderOfCausalityHelp" class="form-text"> 
+          max 100. integer format, blanks as delimiters; [further explanation and/or examples]
+        </div>
+      </div> 
+
+      <!-- Duration of Causality -->
+      <div class="mb-3">
+        <label for="durationOfCausality" class="form-label">Duration of Causality:</label>
+        <input type="text" class="form-control" id="durationOfCausality">
+        <div id="durationOfCausalityHelp" class="form-text"> 
+          max 100. integer format, blanks as delimiters; [further explanation and/or examples]
+        </div>
+      </div> 
+
+      <!-- Sample Size -->
+      <div class="mb-3">
+        <label for="m" class="form-label">Sample Size:</label>
+        <input type="number" min="1" max="1000" class="form-control" id="m">
+        <div id="mHelp" class="form-text"> 
+          Maximum 1000 for fully licensed version. Max 30 for free version; [explanation here]
+        </div>
+      </div> 
+
+      <!-- Print Extent -->
+      <div class="mb-3">
+        <label class="form-label">Print Extent:</label>
+          <select class="form-select" aria-label="example value (?)">
+            <option selected>Choose one of the following</option>
+            <option value="0">0</option>
+            <option value="1">1</option>
+            <option value="2">2</option>
+            <option value="3">3</option>
+          </select>
+          <div class="form-text">[explanation here]</div>
+      </div>
+
+      <!-- Selected Random Model -->
+      <div class="mb-3">
+        <label class="form-label">Selected Random Model:</label>
+          <select class="form-select" aria-label="example value (?)">
+            <option selected>Choose one of the following</option>
+            <option value="1">Apriori</option>
+            <option value="0">Aposteriori</option>
+          </select>
+          <div class="form-text">[explanation here]</div>
+      </div>
+
+      <!-- Level of Significance -->
+      <div class="mb-3">
+        <label for="levelOfSignificance" class="form-label">Level of Significance (Zsig.):</label>
+        <input type="number" class="form-control" id="levelOfSignificance">
+        <div id="significanceHelp" class="form-text"> 
+          depending on apriori or aposteriori random model; [explanation here]
+        </div>
+      </div> 
+
+      <!-- Level of Simulation -->
+      <div class="mb-3">
+        <label for="simParameter" class="form-label">Level of Simulation (Zsim):</label>
+        <input type="number" class="form-control" id="simParameter">
+        <div id="simParameterHelp" class="form-text"> 
+          simulations are always computed with apriori probabilities; [explanation here]
+        </div>
+      </div> 
+
+      <!-- Level of Extraction -->
+      <div class="mb-3">
+        <label for="extracParam" class="form-label">Level of Extraction (Zext):</label>
+        <input type="number" class="form-control" id="extracParam">
+        <div id="extracParamHelp" class="form-text"> 
+          if zero: no extraction. [explanation here]
+        </div>
+      </div> 
+
+      <!-- Extraction Random Model -->
+      <div class="mb-3">
+        <label class="form-label">Extraction Random Model:</label>
+          <select class="form-select" aria-label="example value (?)">
+            <option selected>Choose one of the following</option>
+            <option value="1">Apriori</option>
+            <option value="0">Aposteriori</option>
+          </select>
+          <div class="form-text">[explanation here]</div>
+      </div>
+
+      <!-- Inclusion Criterion -->
+      <div class="mb-3">
+        <label class="form-label">Inclusion-Criterion:</label>
+          <select class="form-select" aria-label="example value (?)">
+            <option selected>Choose one of the following</option>
+            <option value="1">norm</option>
+            <option value="0">not norm</option>
+          </select>
+          <div class="form-text">[explanation here]</div>
+      </div>  
+
+      <!-- Y(p)-Cut -->
+      <div class="mb-3">
+        <label for="yCut" class="form-label">Y(p)-Cut:</label>
+        <input type="number" min="0" max="1" class="form-control" id="yCut">
+        <div id="yCutHelp" class="form-text"> 
+          between 0.0 and 1.0; [explanation here]
+        </div>
+      </div> 
+
+      <!-- X(p)-Cut -->
+      <div class="mb-3">
+        <label for="xCut" class="form-label">X(p)-Cut:</label>
+        <input type="number" min="0" max="1" class="form-control" id="xCut">
+        <div id="xCutHelp" class="form-text"> 
+          between 0.0 and 1.0; [explanation here]
+        </div>
+      </div>       
+
+      <!-- Graph Theoretical Analysis -->
+      <div class="mb-3">
+        <label class="form-label">Graph Theoretical Analysis:</label>
+          <select class="form-select" aria-label="example value (?)">
+            <option selected>Choose one of the following</option>
+            <option value="1">Yes</option>
+            <option value="0">No</option>
+          </select>
+          <div class="form-text">Ich habe "No" als 0 und "Yes" als 1, stimmt das?; [explanation here]</div>
+      </div> 
+
+      <!-- Weighting of Cases -->
+      <div class="mb-3">
+        <label class="form-label">Weighting of Cases:</label>
+          <select class="form-select" aria-label="example value (?)">
+            <option selected>Choose one of the following</option>
+            <option value="1">Yes</option>
+            <option value="0">No</option>
+          </select>
+          <div class="form-text">taken from file RELAN-WEI; [explanation here]</div>
+      </div> 
+
+      <!-- Causal Analysis -->
+      <div class="mb-3">
+        <label class="form-label">Causal Analysis:</label>
+          <select class="form-select" aria-label="example value (?)">
+            <option selected>Choose one of the following</option>
+            <option value="1">Yes</option>
+            <option value="0">No</option>
+          </select>
+          <div class="form-text">[explanation here]</div>
+      </div> 
+
+      <!-- Truth Function -->
+      <div class="mb-3">
+        <label class="form-label">Truth Function:</label>
+          <select class="form-select" aria-label="example value (?)">
+            <option selected>Choose one of the following</option>
+            <option value="0">Boolean Function from "RELAN-IN"</option>
+            <option value="1">Truth values from "RELAN-FCT"</option>
+          </select>
+          <div class="form-text">[explanation here]</div>
+      </div> 
+
+      <!-- Hypothetical Function -->
+      <div class="mb-3">
+        <label for="hypoFunc" class="form-label">Hypothetical Function:</label>
+        <input type="text" class="form-control" id="hypoFunc">
+        <div id="hypoFuncHelp" class="form-text"> 
+          add space between values; Restriction: under 79 signs under 11 variables, under 31 brackets; <br>
+          [further explanation and/or examples]
+        </div>
+      </div> 
+
+      <!-- Extractional Function -->
+      <div class="mb-3">
+        <label for="extraFunc" class="form-label">Extractional Function:</label>
+        <input type="text" class="form-control" id="extraFunc">
+        <div id="extraFuncHelp" class="form-text"> 
+          add space between values; Restriction: under 79 signs under 11 variables, under 31 brackets; <br>
+          [further explanation and/or examples]
+        </div>
+      </div> 
+
+      <!-- S A V E -->
+      <button type="save" class="btn btn-primary"> S A V E </button>
+
+    </form>
+  </div>
+
+    <!-- You can also require other files to run in this process -->
+    <script src="./renderer.js"></script>
+    <!-- Bootstrap CSS -->
+    <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.2.0-beta1/dist/js/bootstrap.bundle.min.js" integrity="sha384-pprn3073KE6tl6bjs2QrFaJGz5/SUsLqktiwsUTF55Jfv3qYSDhgCecCxMW52nD2" crossorigin="anonymous"></script>
+  </body>
+</html>

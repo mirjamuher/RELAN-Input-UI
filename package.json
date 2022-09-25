@@ -1,0 +1,16 @@
+{
+  "name": "RELAN_fiddle_trial",
+  "productName": "RELAN_fiddle_trial",
+  "description": "My Electron application description",
+  "keywords": [],
+  "main": "./main.js",
+  "version": "1.0.0",
+  "author": "mirjam",
+  "scripts": {
+    "start": "electron ."
+  },
+  "dependencies": {},
+  "devDependencies": {
+    "electron": "18.2.3"
+  }
+}

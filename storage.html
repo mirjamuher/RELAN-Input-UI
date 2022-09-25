@@ -1,0 +1,65 @@
+<!-- Empty -->
+
+    <!-- INLINE VERSION -->
+    <div class="container">
+    <form>
+      <!-- Project Title -->
+      <div class="row mb-3">
+        <label for="projectName" class="col-sm-2 col-form-label">Project name:</label>
+        <div class="col-sm-10">
+          <input type="text" maxlength="80" class="form-control" id="projectName">
+        </div>
+      </div>
+
+      <!-- Options -->
+      <fieldset class="row mb-3">
+        <legend class="col-form-label col-sm-2 pt-0">Options:</legend>
+        <div class="col-sm-10">
+          <div class="form-check form-check-inline">
+            <input class="form-check-input" type="radio" name="options" id="connection" checked>
+            <label class="form-check-label" for="connection">
+              Connection
+            </label>
+          </div>
+          <div class="form-check form-check-inline">
+            <input class="form-check-input" type="radio" name="options" id="implication">
+            <label class="form-check-label" for="implication">
+              Implication
+            </label>
+          </div>
+          <div class="form-check form-check-inline">
+            <input class="form-check-input" type="radio" name="options" id="function">
+            <label class="form-check-label" for="function">
+              Function
+            </label>
+          </div>
+          <div class="form-check form-check-inline">
+            <input class="form-check-input" type="radio" name="options" id="simulation">
+            <label class="form-check-label" for="simulation">
+              Simulation
+            </label>
+          </div>
+        </div>
+      </fieldset>
+
+      <!-- Data Input -->
+      <fieldset class="row mb-3">
+        <legend class="col-form-label col-sm-2 pt-0">Data Input:</legend>
+        <div class="col-sm-10">
+          <div class="form-check form-check-inline">
+            <input class="form-check-input" type="radio" name="dataInput" id="relanDat" checked>
+            <label class="form-check-label" for="connection">
+              RELAN-DAT (Matrix)
+            </label>
+          </div>
+          <div class="form-check form-check-inline">
+            <input class="form-check-input" type="radio" name="dataInput" id="relanKat">
+            <label class="form-check-label" for="implication">
+              RELAN-KAT (Vector)
+            </label>
+          </div>
+        </div>
+      </fieldset>
+
+    </form>
+    </div>
