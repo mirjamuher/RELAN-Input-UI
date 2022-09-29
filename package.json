@@ -1,16 +1,52 @@
 {
-  "name": "RELAN_fiddle_trial",
-  "productName": "RELAN_fiddle_trial",
-  "description": "My Electron application description",
+  "name": "RELAN_GUI",
+  "productName": "RELAN_GUI",
+  "description": "This is a GUI for users of RELAN, a new program designed by Dr. Rainer Maderthaner for statistical and causal analysis of data.",
   "keywords": [],
   "main": "./main.js",
   "version": "1.0.0",
-  "author": "mirjam",
+  "author": "Mirjam uher",
   "scripts": {
-    "start": "electron ."
+    "start": "electron-forge start",
+    "package": "electron-forge package",
+    "make": "electron-forge make"
   },
-  "dependencies": {},
   "devDependencies": {
+    "@electron-forge/cli": "^6.0.0-beta.66",
+    "@electron-forge/maker-deb": "^6.0.0-beta.66",
+    "@electron-forge/maker-rpm": "^6.0.0-beta.66",
+    "@electron-forge/maker-squirrel": "^6.0.0-beta.66",
+    "@electron-forge/maker-zip": "^6.0.0-beta.66",
     "electron": "18.2.3"
+  },
+  "dependencies": {
+    "electron-squirrel-startup": "^1.0.0"
+  },
+  "config": {
+    "forge": {
+      "packagerConfig": {},
+      "makers": [
+        {
+          "name": "@electron-forge/maker-squirrel",
+          "config": {
+            "name": "RELAN_fiddle_trial"
+          }
+        },
+        {
+          "name": "@electron-forge/maker-zip",
+          "platforms": [
+            "darwin"
+          ]
+        },
+        {
+          "name": "@electron-forge/maker-deb",
+          "config": {}
+        },
+        {
+          "name": "@electron-forge/maker-rpm",
+          "config": {}
+        }
+      ]
+    }
   }
 }
