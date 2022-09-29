@@ -16,7 +16,7 @@ function createWindow () {
   mainWindow.loadFile('index.html')
 
   // Open the DevTools.
-  mainWindow.webContents.openDevTools()
+  mainWindow.webContents.openDevTools() // TODO: disable when code is ready for production
 }
 
 // This method will be called when Electron has finished
