@@ -9,27 +9,62 @@ $(document).ready(function(){
     // jQuery methods go here
     //$("#option").prop('disabled', true);
 
-    // 1. depending on which Option is selected, certain parameters are disabled
+    // Whenever a different option is selected, certain parameters are hidden
     $('#option').on('change', function() {
+        // have everything reappear upon change of option
+        $('div:hidden').each(function() {
+            $(this).show();
+        })
+        
+        // hide unnecessary parameters from user
+        // CONNECTIONS
         if ($('#option').val() === "0") {
-           alert("CONNECTIONS") 
+           $('#simParameterDiv').hide();
+           $('#extractParamDiv').hide();
+           $('#extractionModelDiv').hide();
+           $('#inclusionCriteriaDiv').hide();
+           $('#yCutDiv').hide();
+           $('#xCutDiv').hide();
+           $('#graphAnalysisDiv').hide();
+           $('#truthFuncDiv').hide();
+           $('#hypoFuncDiv').hide();
+           $('#extraFuncDiv').hide();
         } 
 
+        // IMPLICATIONS
         else if ($('#option').val() === "1") {
-            alert("IMPLICATIONS") 
+            $('#simParameterDiv').hide();
+            $('#extractParamDiv').hide();
+            $('#extractionModelDiv').hide();
+            $('#inclusionCriteriaDiv').hide();
+            $('#yCutDiv').hide();
+            $('#xCutDiv').hide();
+            $('#truthFuncDiv').hide();
+            $('#hypoFuncDiv').hide();
+            $('#extraFuncDiv').hide();
         } 
 
+        // CONFIRMATION
         else if ($('#option').val() === "2") {
-            alert("CONFIRMATION") 
             // level of simulation, inclusion criterion, graph theoretical analysis
-            $('#simParameter').prop('disabled', true);
-            $('#inclusionCriteria').prop('disabled', true);
-            $('#graphAnalysis').prop('disabled', true);
-            // todo: have text under field update to say "disabled for option CONFIRMATION" or something
-        } 
+            $('#simParameterDiv').hide();
+            $('#inclusionCriteriaDiv').hide();
+            $('#yCutDiv').hide();
+            $('#xCutDiv').hide();
+            $('#graphAnalysisDiv').hide();
+        }
 
+        // SIMULATION
         else if ($('#option').val() === "3") {
             alert("SIMULATION") 
+            $('#dataInputDiv').hide();
+            $('#dataFormatDiv').hide();
+            $('#dichtomisationDiv').hide();
+            $('#vectorOfDichtomisationDiv').hide();
+            $('#inclusionCriteriaDiv').hide();
+            $('#yCutDiv').hide();
+            $('#xCutDiv').hide();
+            $('#graphAnalysisDiv').hide();
         } 
     })
 });
