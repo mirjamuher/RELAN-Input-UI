@@ -8,6 +8,7 @@
 document.addEventListener('DOMContentLoaded', (event) => {
     // Whenever a different option is selected, certain parameters are hidden
     const option = document.getElementById('option');
+
     option.addEventListener('change', function handleOptionSelection(event) {
         // have everything reappear 
         document.querySelectorAll('.hidden').forEach(el => {
@@ -75,10 +76,33 @@ document.addEventListener('DOMContentLoaded', (event) => {
         // })
     })
 
-    // All fields need a value, otherwise the save button will open an error message
-    const saveBtn = document.getElementById('saveBtn');
-    saveBtn.addEventListener('click', function() {
-        // todo
-        alert("clicked!");
+    document.getElementById('ipcForm').addEventListener('submit', event => {
+        event.preventDefault(); // stop form from submitting
+        console.log(event);
+
+        // Step 1: VALIDATION
+        //todo
+
+        // Step  2: extract values
+
+
+        const fd = new FormData(event.target);
+        var data = "";
+        for (const [key, value] of fd) {
+            console.log(`${key} => ${value}`);
+            data += `${value}\n`;
+        }
+
+        var blob = new Blob([data], {type: "text/plain"});
+        var url = window.URL.createObjectURL(blob);
+        var anchor = document.createElement("a");
+        anchor.href = url;
+        anchor.download = "demo.txt";
+
+        anchor.click();
+        window.URL.revokeObjectURL(url);
+        document.removeChild(anchor);
+
+        return false;
     })
 });
