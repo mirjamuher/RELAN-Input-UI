@@ -13,7 +13,6 @@ document.addEventListener('DOMContentLoaded', (event) => {
         document.querySelectorAll('.hidden').forEach(el => {
             el.classList.remove('hidden');
         })
-
         // hide unnecessary parameters from user
         // CONNECTIONS
         if (event.target.value === '0') {
@@ -29,7 +28,6 @@ document.addEventListener('DOMContentLoaded', (event) => {
             document.getElementById('hypoFuncDiv').classList.add('hidden');
             document.getElementById('extraFuncDiv').classList.add('hidden');
         }
-
         // IMPLICATION
         else if (event.target.value === '1') {
             console.log(event)
@@ -43,7 +41,6 @@ document.addEventListener('DOMContentLoaded', (event) => {
             document.getElementById('hypoFuncDiv').classList.add('hidden');
             document.getElementById('extraFuncDiv').classList.add('hidden');
         }
-
         // CONFIRMATION
         else if (event.target.value === '2') {
             console.log(event)
@@ -53,7 +50,6 @@ document.addEventListener('DOMContentLoaded', (event) => {
             document.getElementById('xCutDiv').classList.add('hidden');
             document.getElementById('graphAnalysisDiv').classList.add('hidden');
         }
-
         // SIMULATION
         else if (event.target.value === '3') {
             console.log(event)
@@ -66,5 +62,23 @@ document.addEventListener('DOMContentLoaded', (event) => {
             document.getElementById('xCutDiv').classList.add('hidden');
             document.getElementById('graphAnalysisDiv').classList.add('hidden');
         }
+
+        // TODO: set value of all hidden elements to '0'
+        // document.querySelectorAll('.hidden').forEach(el => {
+        //     var input = el.querySelector('input');
+        //     if (input != null) {
+        //         input.value = '0'
+        //     } else {
+        //         el.querySelector('')
+        //     }
+        //     console.log(el);
+        // })
+    })
+
+    // All fields need a value, otherwise the save button will open an error message
+    const saveBtn = document.getElementById('saveBtn');
+    saveBtn.addEventListener('click', function() {
+        // todo
+        alert("clicked!");
     })
 });
