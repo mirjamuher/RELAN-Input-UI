@@ -83,17 +83,30 @@ document.addEventListener('DOMContentLoaded', (event) => {
         // Step 1: VALIDATION
         //todo
 
-        // Step  2: extract values
-
-
+        // Step  2: extract value
         const fd = new FormData(event.target);
-        var data = "";
+        const data = [];
         for (const [key, value] of fd) {
             console.log(`${key} => ${value}`);
-            data += `${value}\n`;
+
+            var cleanedValue = value;
+            if (value === "" || value === "Choose one of the following") {
+                cleanedValue = '0';
+            };
+
+            // some of the values have to be grouped in the output; that is achieved here
+            const el = event.target.querySelector(`[name="${key}"]`)
+            if (el.dataset['appendToPrior'] === 'true') {
+                data[data.length - 2] += ' / ' + key;
+                data[data.length - 1] += '\t' + cleanedValue;
+            } else {
+                data.push(key);
+                data.push(cleanedValue);
+            }
         }
 
-        var blob = new Blob([data], {type: "text/plain"});
+        // Step 3: save file 
+        var blob = new Blob([data.join('\n') + '\n'], {type: "text/plain"});
         var url = window.URL.createObjectURL(blob);
         var anchor = document.createElement("a");
         anchor.href = url;
