@@ -10,10 +10,20 @@ document.addEventListener('DOMContentLoaded', (event) => {
     const option = document.getElementById('option');
 
     option.addEventListener('change', function handleOptionSelection(event) {
-        // have everything reappear 
+        // have everything reappear & restore value to be empty
         document.querySelectorAll('.hidden').forEach(el => {
+            var input = el.querySelector('input');
+            if (input != null) {
+                input.value = ''
+            }
+
+            var select = el.querySelector('select');
+            if (select != null) {
+                select.value = ''
+            }
             el.classList.remove('hidden');
         })
+
         // hide unnecessary parameters from user
         // CONNECTIONS
         if (event.target.value === '0') {
@@ -64,21 +74,23 @@ document.addEventListener('DOMContentLoaded', (event) => {
             document.getElementById('graphAnalysisDiv').classList.add('hidden');
         }
 
-        // TODO: set value of all hidden elements to '0'
-        // document.querySelectorAll('.hidden').forEach(el => {
-        //     var input = el.querySelector('input');
-        //     if (input != null) {
-        //         input.value = '0'
-        //     } else {
-        //         el.querySelector('')
-        //     }
-        //     console.log(el);
-        // })
+        //set value of all hidden elements to '0'
+        document.querySelectorAll('.hidden').forEach(el => {
+            var input = el.querySelector('input');
+            if (input != null) {
+                input.value = '0'
+            }
+
+            var select = el.querySelector('select');
+            if (select != null) {
+                select.value = '0'
+            }
+        })
     })
 
     document.getElementById('ipcForm').addEventListener('submit', event => {
         event.preventDefault(); // stop form from submitting
-        console.log(event);
+        console.log(event); // todo: remove
 
         // Step 1: VALIDATION
         //todo
@@ -90,9 +102,9 @@ document.addEventListener('DOMContentLoaded', (event) => {
             console.log(`${key} => ${value}`);
 
             var cleanedValue = value;
-            if (value === "" || value === "Choose one of the following") {
-                cleanedValue = '0';
-            };
+            // if (value === "" || value === "Choose one of the following") {
+            //     cleanedValue = '0';
+            // };
 
             // some of the values have to be grouped in the output; that is achieved here
             const el = event.target.querySelector(`[name="${key}"]`)
