@@ -86,38 +86,47 @@ document.addEventListener('DOMContentLoaded', (event) => {
                 select.value = '0'
             }
         })
+
+        // WIP: have button do a validation check while we still have access to the elements, before moving to the submit event with just formData
+        // have button validate fields before triggering submit event
+        const submitBtn = document.getElementById('submitBtn');
+        submitBtn.addEventListener('click', event => {
+            alert("BTN WAS CLICKED");
+            // do validation here
+
+            // if validation passes, submit form
+            document.getElementById('ipcForm').dispatchEvent(new CustomEvent('submit'));
+        })
     })
 
     document.getElementById('ipcForm').addEventListener('submit', event => {
-        event.preventDefault(); // stop form from submitting
+        event.preventDefault();
         console.log(event); // todo: remove
 
-        // Step 1: VALIDATION
-        //todo
-
-        // Step  2: extract value
         const fd = new FormData(event.target);
         const data = [];
         for (const [key, value] of fd) {
             console.log(`${key} => ${value}`);
+            
+            // Step 1: VALIDATION
+            if (value === "") {
+                alert("VALUE EMPTY NONO");
+                return false;
+            }
 
-            var cleanedValue = value;
-            // if (value === "" || value === "Choose one of the following") {
-            //     cleanedValue = '0';
-            // };
-
-            // some of the values have to be grouped in the output; that is achieved here
+            // Step  2: VALUE EXTRACTION
             const el = event.target.querySelector(`[name="${key}"]`)
             if (el.dataset['appendToPrior'] === 'true') {
+                // some of the keys and values are grouped in the output
                 data[data.length - 2] += ' / ' + key;
-                data[data.length - 1] += '\t' + cleanedValue;
+                data[data.length - 1] += '\t' + value;
             } else {
                 data.push(key);
-                data.push(cleanedValue);
+                data.push(value);
             }
         }
 
-        // Step 3: save file 
+        // Step 3: SAVE FILE
         var blob = new Blob([data.join('\n') + '\n'], {type: "text/plain"});
         var url = window.URL.createObjectURL(blob);
         var anchor = document.createElement("a");
