@@ -33,7 +33,8 @@
         <label for="title" class="form-label">Title:</label>
         <input type="text" maxlength="80" class="form-control" id="title" name="Title:">
         <div id="titleHelp" class="form-text"> 
-          Example: "1 Simulation of the relation: ((UUU * BBB) > WWW)) * (AAA > WWW)"
+          Name can be up to 80 letters long. <br>
+          Example: <code>Confirmation ((VAC and ANT) or ILL) implies IMM (protection)</code>
         </div>
       </div>    
 
@@ -47,26 +48,31 @@
             <option value="2">Confirmation</option>
             <option value="3">Simulation</option>
           </select>
-          <div class="form-text">[explanation here]</div>
+          <div class="form-text"></div>
       </div>
 
       <!-- Data Input -->
       <div class="mb-3" id="dataInputDiv">
         <label class="form-label">Data Input:</label>
-          <select name="Data Input (1 = RELAN-DAT (Matrix Input), 2 = RELAN-KAT(Vector Input):" class="form-select" aria-label="example value (?)">
+          <select name="Data Input File (1 = RELAN-DAT (Matrix Input), 2 = RELAN-KAT(Vector Input):" class="form-select" aria-label="example value (?)">
             <option selected>Choose one of the following</option>
             <option value="1">RELAN-DAT (Matrix Input)</option>
             <option value="2">RELAN-KAT (Vector Input)</option>
           </select>
-          <div class="form-text">[explanation here]</div>
+          <div class="form-text">Select the data input file.</div>
       </div>
 
       <!-- Number of Variables -->
       <div class="mb-3">
         <label for="maxm" class="form-label">Number of Variables:</label>
-        <input name="Number of Variables (max = 100, not licenced: max = 4):" type="number" class="form-control" id="maxm">
+        <input name="Number of Variables:" type="number" class="form-control" id="maxm">
         <div id="maxmHelp" class="form-text"> 
-          max for full version is 100, max for free license is 4
+          <ul>
+            <li>Number must be a positive integer.</li>
+            <li>With the fully licensed version, number can be between 1 and 100.</li>
+            <li>With the free version, number can be between 1 and 4.</li>
+          </ul>
+          Example: <code>76</code>
         </div>
       </div> 
 
@@ -74,9 +80,11 @@
       <div class="mb-3" id="dataFormatDiv">
         <label for="dataFormat" class="form-label">Format of Data for RELAN-DAT:</label>
         <input name="Format of Data for RELAN-DAT (number of variables-F-field width.decimal digits)" type="text" maxlength="15" class="form-control" id="dataFormat">
+        <!-- FIXME: figure out validation & wait for reworking of formatOfDatHelp -->
         <div id="formatOfDataHelp" class="form-text"> 
-          number of variables-F-field width.decimal digit [ich versteh das nicht ganz, gehoert vll
-          in das Fragezeichen Feld und hier nur ein paar Beispiele]
+          <code>!!! ACHTUNG: MUSS UEBERARBEITET WERDEN FUER KLARHEIT</code><br>
+          The first number specifies the number of variables ('F' = floating point format), the next declares the total width of the variable. 'D' indicates the number of decimal places. <br>
+          Example: <code>(4F4.0)</code>
         </div>
       </div>    
 
@@ -88,7 +96,7 @@
             <option value="1">Yes</option>
             <option value="0">No</option>
           </select>
-          <div class="form-text">[explanation here]</div>
+          <div class="form-text">If yes, the input data will be dichotomised by using the vector of dichotomisation.</div>
       </div>
 
       <!-- Name of Variables -->
@@ -96,16 +104,27 @@
         <label for="nameOfVars" class="form-label">Name of Variables:</label>
         <input name="Names of Variables (max = 100)(three alphanumeric symbols, blanks as delimiters):" type="text" class="form-control" id="nameOfVars">
         <div id="nameOfVarsHelp" class="form-text"> 
-          max 100 variables. three alphanumerical symbols, blanks as delimiters; [further explanation and/or examples]
+          <ul>
+            <li>This field should have N variables, where N is the value in "Number of Variables".</li>
+            <li>Each variable must consist of three letters.</li>
+            <li>Each variable name must be seperated by one space.</li>
+          </ul>
+          Example: <code>VAC ANT ILL IMM</code>
         </div>
       </div> 
 
       <!-- Vector of Dichotomisation -->
       <div class="mb-3" id="vectorOfDichtomisationDiv">
         <label for="vectorOfDichotomisation" class="form-label">Vector of Dichotomisation:</label>
-        <input name="Vector of Dichotomisation (max = 100)(floating point format, blanks as delimitors):" type="text" class="form-control" id="vectorOfDichotomisation">
+        <input name="Vector of Dichotomisation (max = 100, floating point format, blanks as delimitors):" type="text" class="form-control" id="vectorOfDichotomisation">
         <div id="vectorHelp" class="form-text"> 
-          max 100. floating point format, blanks as delimitors; [further explanation and/or examples]
+          <ul>
+            <li>This field should have N variables, where N is the value in "Number of Variables".</li>
+            <li>Each number here is coindexed with the variable name in "Name of Variables".</li>
+            <li>Each number must have two decimal places, and be between 0 and 1.</li>
+            <li>Each number must be seperated by one space.</li>
+          </ul>
+          Example: <code>0.50 0.50 0.50 0.50</code>
         </div>
       </div> 
 
@@ -114,7 +133,13 @@
         <label for="aprioriProbabilities" class="form-label">Probabilities of the Apriori Random Model:</label>
         <input name="Probabilities of the Apriori Random Model (max = 100)(floating point format,blanks as delimiters):" type="text" class="form-control" id="aprioriProbabilities">
         <div id="aprioriProbabilitiesHelp" class="form-text"> 
-          max 100. floating point format with blanks as delimiters; [further explanation and/or examples]
+          <ul>
+            <li>This field should have N variables, where N is the value in "Number of Variables".</li>
+            <li>Each number here is coindexed with the variable name in "Name of Variables".</li>
+            <li>Each number must have two decimal places, and be between 0 and 1.</li>
+            <li>Each number must be seperated by one space.</li>
+          </ul>
+          Example: <code>0.50 0.50 0.50 0.50</code>
         </div>
       </div> 
 
@@ -123,7 +148,13 @@
         <label for="orderOfCausality" class="form-label">Order of Causality:</label>
         <input name="Order of Causality (max = 100)(integer format, blanks as delimiters):" type="text" class="form-control" id="orderOfCausality">
         <div id="orderOfCausalityHelp" class="form-text"> 
-          max 100. integer format, blanks as delimiters; [further explanation and/or examples]
+          <ul>
+            <li>This field should have N variables, where N is the value in "Number of Variables".</li>
+            <li>Each number here is coindexed with the variable name in "Name of Variables".</li>
+            <li>Each number must be an integer.</li>
+            <li>Each number must be seperated by one space.</li>
+          </ul>
+          Example: <code>1 1 2 1</code>
         </div>
       </div> 
 
@@ -132,16 +163,27 @@
         <label for="durationOfCausality" class="form-label">Duration of Causality:</label>
         <input name="Duration of Causality (max = 100)(integer format, blanks as delimiters):" type="text" class="form-control" id="durationOfCausality">
         <div id="durationOfCausalityHelp" class="form-text"> 
-          max 100. integer format, blanks as delimiters; [further explanation and/or examples]
+          <ul>
+            <li>This field should have N variables, where N is the value in "Number of Variables".</li>
+            <li>Each number here is coindexed with the variable name in "Name of Variables".</li>
+            <li>Each number must be an integer.</li>
+            <li>Each number must be seperated by one space.</li>
+          </ul>
+          Example: <code>2 2 1 2</code>
         </div>
       </div> 
 
       <!-- Sample Size -->
       <div class="mb-3">
         <label for="m" class="form-label">Sample Size:</label>
-        <input name="Sample Size (max = 1000, not licenced: max = 30):" type="number" min="1" max="1000" class="form-control" id="m">
+        <input name="Sample Size (max = 1000, not licenced: max = 50):" type="number" min="1" max="1000" class="form-control" id="m">
         <div id="mHelp" class="form-text"> 
-          Maximum 1000 for fully licensed version. Max 30 for free version; [explanation here]
+          <ul>
+            <li>Number must be a positive integer.</li>
+            <li>With the fully licensed version, number can be between 1 and 1000.</li>
+            <li>With the free version, number can be between 1 and 50.</li>
+          </ul>
+          Example: <code>800</code>
         </div>
       </div> 
 
@@ -155,7 +197,7 @@
             <option value="2">2</option>
             <option value="3">3</option>
           </select>
-          <div class="form-text">[explanation here]</div>
+          <div class="form-text">0 will set the detail level in the output file to the least detailed, 3 to the most detailed.</div>
       </div>
 
       <!-- Selected Random Model -->
@@ -166,24 +208,32 @@
             <option value="1">Apriori</option>
             <option value="0">Aposteriori</option>
           </select>
-          <div class="form-text">[explanation here]</div>
+          <div class="form-text"></div>
       </div>
 
       <!-- Level of Significance -->
       <div class="mb-3">
         <label for="zsig" class="form-label">Level of Significance (Zsig.):</label>
-        <input name="Level of Significance (Zsig.)(depending on apriori or aposteriori random model:" type="number" class="form-control" id="levelOfSignificance">
+        <input name="Level of Significance (Zsig.) (depends on apriori or aposteriori random model):" type="number" class="form-control" id="levelOfSignificance">
         <div id="significanceHelp" class="form-text"> 
-          depending on apriori or aposteriori random model; [explanation here]
+          <ul>
+            <li>Number must be positive.</li>
+            <li>Number must have three decimal places.</li>
+          </ul>
+          Example: <code>1.645</code>
         </div>
       </div> 
 
       <!-- Level of Simulation -->
       <div class="mb-3" id="simParameterDiv">
         <label for="simParameter" class="form-label">Level of Simulation (Zsim):</label>
-        <input name="Level of Simulation(Zsim)(simulations are allways computed with apriori probabilities):" type="number" class="form-control" id="simParameter">
+        <input name="Level of Simulation (Zsim.) (simulations are allways computed with apriori probabilities):" type="number" class="form-control" id="simParameter">
         <div id="simParameterHelp" class="form-text"> 
-          simulations are always computed with apriori probabilities; [explanation here]
+          <ul>
+            <li>Number must be positive.</li>
+            <li>Number must have three decimal places.</li>
+          </ul>
+          Example: <code>5.000</code>
         </div>
       </div> 
 
@@ -192,7 +242,12 @@
         <label for="extracParam" class="form-label">Level of Extraction (Zext):</label>
         <input name="Level of Extraction(Zext)(if zero: no extraction)" type="number" class="form-control" id="extracParam">
         <div id="extracParamHelp" class="form-text"> 
-          if zero: no extraction. [explanation here]
+          If Number is set to "0.000", there will be no extraction procedure.
+          <ul>
+            <li>Number must be positive.</li>
+            <li>Number must have three decimal places.</li>
+          </ul>
+          Example: <code>0.000</code>
         </div>
       </div> 
 
@@ -204,7 +259,7 @@
             <option value="1">Apriori</option>
             <option value="0">Aposteriori</option>
           </select>
-          <div class="form-text">[explanation here]</div>
+          <div class="form-text"></div>
       </div>
 
       <!-- Inclusion Criterion -->
@@ -215,24 +270,34 @@
             <option value="1">norm</option>
             <option value="0">not norm</option>
           </select>
-          <div class="form-text">[explanation here]</div>
+          <div class="form-text"></div>
       </div>  
 
       <!-- Y(p)-Cut -->
       <div class="mb-3" id="yCutDiv">
         <label for="yCut" class="form-label">Y(p)-Cut:</label>
-        <input name="Y(p)-Cut(0.0...1.0)" data-append-to-prior="true" type="number" min="0" max="1" class="form-control" id="yCut">
+        <input name="Y(p)-Cut(0.00...1.00)" data-append-to-prior="true" type="number" min="0" max="1" class="form-control" id="yCut">
         <div id="yCutHelp" class="form-text"> 
-          between 0.0 and 1.0; [explanation here]
+          Restricts the output to the specified relative frequencies of the Y variables.
+          <ul>
+            <li>Number must be positive.</li>
+            <li>Number must have two decimal places and be between 0 and 1.</li>
+          </ul>
+          Example: <code>0.00</code>
         </div>
       </div> 
 
       <!-- X(p)-Cut -->
       <div class="mb-3" id="xCutDiv">
         <label for="xCut" class="form-label">X(p)-Cut:</label>
-        <input name="X(p)-Cut(0.0...1.0):" data-append-to-prior="true" type="number" min="0" max="1" class="form-control" id="xCut">
+        <input name="X(p)-Cut(0.00...1.00):" data-append-to-prior="true" type="number" min="0" max="1" class="form-control" id="xCut">
         <div id="xCutHelp" class="form-text"> 
-          between 0.0 and 1.0; [explanation here]
+          Restricts the output to the specified relative frequencies of the X variables.
+          <ul>
+            <li>Number must be positive.</li>
+            <li>Number must have two decimal places and be between 0 and 1.</li>
+          </ul>
+          Example: <code>0.00</code>
         </div>
       </div>       
 
@@ -244,7 +309,10 @@
             <option value="1">Yes</option>
             <option value="0">No</option>
           </select>
-          <div class="form-text">Ich habe "No" als 0 und "Yes" als 1, stimmt das?; [explanation here]</div>
+          <div class="form-text">
+            <code>!!! WICHTIG: STIMMT ES, DASS 1 FUER YES UND 0 FUER NO STEHT? (ist nicht ersichtlich von RELAN-IN.txt) !!! </code> <br>
+            If yes is selected, graph theoretical analysis is performed for the signification implicational and connectional relations.
+          </div>
       </div> 
 
       <!-- Weighting of Cases -->
@@ -255,7 +323,9 @@
             <option value="1">Yes</option>
             <option value="0">No</option>
           </select>
-          <div class="form-text">taken from file RELAN-WEI; [explanation here]</div>
+          <div class="form-text">
+            If yes is selected, then cases will be weighed by the vector provided in "RELAN-WEI.txt".
+          </div>
       </div> 
 
       <!-- Causal Analysis -->
@@ -266,7 +336,9 @@
             <option value="1">Yes</option>
             <option value="0">No</option>
           </select>
-          <div class="form-text">[explanation here]</div>
+          <div class="form-text">
+            If yes is selected, then the causal analysis will be elaborated.
+          </div>
       </div> 
 
       <!-- Truth Function -->
@@ -277,26 +349,36 @@
             <option value="0">Boolean Function from "RELAN-IN"</option>
             <option value="1">Truth values from "RELAN-FCT"</option>
           </select>
-          <div class="form-text">[explanation here]</div>
+          <div class="form-text">
+            Chooses if the truth function of the relation will be imported from "RELAN-FCT.txt" or from "RELAN-IN.txt" (which is generated by this GUI).
+          </div>
       </div> 
 
       <!-- Hypothetical Function -->
       <div class="mb-3" id="hypoFuncDiv">
         <label for="hypoFunc" class="form-label">Hypothetical Function:</label>
-        <input name="Hypothetical Function" type="text" class="form-control" id="hypoFunc">
+        <input name="Hypothetical Function (Restrictions: Signs &lt; 79, Variables &lt; 11, Brackets &lt; 31:------too long--------" type="text" class="form-control" id="hypoFunc">
         <div id="hypoFuncHelp" class="form-text"> 
-          add space between values; Restriction: under 79 signs under 11 variables, under 31 brackets; <br>
-          [further explanation and/or examples]
+          <ul>
+            <li>Function must have less than 79 characters.</li>
+            <li>Function may consist of up to 11 variables.</li>
+            <li>Function can contain up to 31 brackets.</li>
+          </ul>
+          Example: <code>((VAC * ANT) &gt; IMM) * (ILL &gt; IMM)</code>
         </div>
       </div> 
 
       <!-- Extractional Function -->
       <div class="mb-3" id="extraFuncDiv">
         <label for="extraFunc" class="form-label">Extractional Function:</label>
-        <input name="Extractional Function" type="text" class="form-control" id="extraFunc">
+        <input name="Extractional Function (Restrictions: Signs &lt; 79, Variables &lt; 11, Brackets &lt; 31:------too long--------" type="text" class="form-control" id="extraFunc">
         <div id="extraFuncHelp" class="form-text"> 
-          add space between values; Restriction: under 79 signs under 11 variables, under 31 brackets; <br>
-          [further explanation and/or examples]
+          <ul>
+            <li>Function must have less than 79 characters.</li>
+            <li>Function may consist of up to 11 variables.</li>
+            <li>Function can contain up to 31 brackets.</li>
+          </ul>
+          Example: <code>((VAC * ANT) &gt; IMM) * (ILL &gt; IMM)</code>
         </div>
       </div>
       
