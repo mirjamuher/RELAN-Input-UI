@@ -86,17 +86,6 @@ document.addEventListener('DOMContentLoaded', (event) => {
                 select.value = '0'
             }
         })
-
-        // WIP: have button do a validation check while we still have access to the elements, before moving to the submit event with just formData
-        // have button validate fields before triggering submit event
-        const submitBtn = document.getElementById('submitBtn');
-        submitBtn.addEventListener('click', event => {
-            alert("BTN WAS CLICKED");
-            // do validation here
-
-            // if validation passes, submit form
-            document.getElementById('ipcForm').dispatchEvent(new CustomEvent('submit'));
-        })
     })
 
     // Read in RELAN-IN.txt values
@@ -199,6 +188,17 @@ document.addEventListener('DOMContentLoaded', (event) => {
         }
     });
 
+    // WIP: have button do a validation check while we still have access to the elements, before moving to the submit event with just formData
+    // have button validate fields before triggering submit event
+    const submitBtn = document.getElementById('saveBtn');
+    submitBtn.addEventListener('click', event => {
+        alert("BTN WAS CLICKED");
+        // do validation here
+
+        // if validation passes, submit form
+        document.getElementById('ipcForm').dispatchEvent(new CustomEvent('submit'));
+    })
+
     // Get FormData and save it to RELAN-IN.txt
     document.getElementById('ipcForm').addEventListener('submit', event => {
         event.preventDefault();
@@ -237,7 +237,7 @@ document.addEventListener('DOMContentLoaded', (event) => {
 
         anchor.click();
         window.URL.revokeObjectURL(url);
-        document.removeChild(anchor);
+        // document.removeChild(anchor); does not seem to work?
 
         return false;
     })
