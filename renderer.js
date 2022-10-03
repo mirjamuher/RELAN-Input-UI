@@ -99,6 +99,62 @@ document.addEventListener('DOMContentLoaded', (event) => {
         })
     })
 
+    // Read in RELAN-IN.txt values
+    document.getElementById('fileReader').addEventListener('change', event => {
+        let file = event.target.files[0];
+        let reader = new FileReader();
+
+        reader.readAsText(file);
+        reader.onerror = function() {
+            alert('Upload failed.\nPlease ensure you selected "RELAN-IN.txt" and try again.')
+            return;
+        }
+
+        reader.onload = function() {
+            //console.log(reader.result);
+            var result = reader.result.trim();
+            var resultList = result.split('\n');
+            var chosenOption = 0;
+            var cleanedResultList = [];
+
+            // get all input Elements from the form
+            const inputElements = Array.from(document.getElementById('ipcForm').querySelectorAll('input:not([data-non-RELAN-input-field="true"]), select:not([data-non-RELAN-input-field="true"])'));
+            
+            // loop through input file and put values into list
+            var i = 0;
+            for (var line of resultList) {
+                line = line.trim();
+                if (line === "") {
+                    continue;
+                }
+                
+                // The third line holds the Option, which determins what form-elements are to be used
+                if (i === 2) {
+                    chosenOption = line;
+                }
+
+                // if line is odd, it should contain a value which we want to save
+                if (i%2 !== 0) {
+                    cleanedResultList.push(line);
+                }
+
+                // increment counter
+                i += 1;
+            }   
+
+            console.log(cleanedResultList);
+
+            // test if length of cleanedResultList === length of inputElements. If not, it means the read-in .txt file was invalid and we have to reject it.
+            if (cleanedResultList.length !== inputElements.length) {
+                alert('Selected file content could not be parsed.\nPlease ensure you selected "RELAN-IN.txt" and try again.')
+                return;
+            }
+
+            alert("EVERYTHING WENT GREAT; GOOD JOB")
+        }
+    });
+
+    // Get FormData and save it to RELAN-IN.txt
     document.getElementById('ipcForm').addEventListener('submit', event => {
         event.preventDefault();
         console.log(event); // todo: remove
@@ -108,11 +164,12 @@ document.addEventListener('DOMContentLoaded', (event) => {
         for (const [key, value] of fd) {
             console.log(`${key} => ${value}`);
             
-            // Step 1: VALIDATION
-            if (value === "") {
-                alert("VALUE EMPTY NONO");
-                return false;
-            }
+            // TODO: ENABLE FOR PRODUCTION
+            // // Step 1: VALIDATION
+            // if (value === "") {
+            //     alert("VALUE EMPTY NONO");
+            //     return false;
+            // }
 
             // Step  2: VALUE EXTRACTION
             const el = event.target.querySelector(`[name="${key}"]`)
@@ -131,7 +188,7 @@ document.addEventListener('DOMContentLoaded', (event) => {
         var url = window.URL.createObjectURL(blob);
         var anchor = document.createElement("a");
         anchor.href = url;
-        anchor.download = "demo.txt";
+        anchor.download = "RELAN-IN.txt";
 
         anchor.click();
         window.URL.revokeObjectURL(url);
