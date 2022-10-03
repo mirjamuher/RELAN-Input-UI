@@ -184,6 +184,9 @@ document.addEventListener('DOMContentLoaded', (event) => {
                 inputEl.value = value;
             }
 
+            // Trigger change event on the select to hide unused fields
+            option.dispatchEvent(new Event('change'));
+
             alert("Parsing successful, fields have been populated with read-in values.")
         }
     });
