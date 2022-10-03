@@ -250,7 +250,7 @@
       <!-- Level of Extraction -->
       <div class="mb-3" id="extractParamDiv">
         <label for="extracParam" class="form-label">Level of Extraction (Zext):</label>
-        <input name="Level of Extraction(Zext)(if zero: no extraction)" type="number" class="form-control" id="extracParam">
+        <input name="Level of Extraction(Zext)(if zero: no extraction)" data-begin-multivalued-line="true" type="number" class="form-control" id="extracParam">
         <div id="extracParamHelp" class="form-text"> 
           If Number is set to "0.000", there will be no extraction procedure.
           <ul>
@@ -275,7 +275,7 @@
       <!-- Inclusion Criterion -->
       <div class="mb-3" id="inclusionCriteriaDiv">
         <label class="form-label">Inclusion-Criterion:</label>
-          <select name="Inclusion-Criterion (1 = norm, 0 = not norm.)" id="inclusionCriteria" class="form-select" aria-label="example value (?)">
+          <select name="Inclusion-Criterion (1 = norm, 0 = not norm.)" data-begin-multivalued-line="true" id="inclusionCriteria" class="form-select" aria-label="example value (?)">
             <option selected>Choose one of the following</option>
             <option value="1">norm</option>
             <option value="0">not norm</option>
