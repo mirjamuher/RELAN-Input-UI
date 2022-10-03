@@ -26,7 +26,17 @@
   <div class="container">
     <form id="ipcForm" method="POST">
       <!-- R E S E T-->
-      <button type="reset" class="btn btn-primary"> R E S E T </button>
+      <div class="mb-3">
+        <button type="reset" class="btn btn-primary"> R E S E T </button> 
+      </div>
+
+      <!-- U P L O A D -->
+      <div class="mb-3">
+        <input id="fileReader" type="file" accept=".txt" class="" />
+        <div id="filesReaderHelp" class="form-text">
+          Optional: Read in values from existing RELAN-IN.txt file
+        </div>
+      </div>
 
       <!-- Project Title -->
       <div class="mb-3">
