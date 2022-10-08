@@ -18,19 +18,38 @@ document.addEventListener('DOMContentLoaded', (event) => {
 
     // WIP: have button do a validation check while we still have access to the elements, before moving to the submit event with just formData
     // have button validate fields before triggering submit event
-    const submitBtn = document.getElementById('saveBtn');
-    submitBtn.addEventListener('click', event => {
-        alert("BTN WAS CLICKED");
-        // do validation here
+    // const submitBtn = document.getElementById('saveBtn');
+    // submitBtn.addEventListener('click', event => {
+    //     alert("BTN WAS CLICKED");
+    //     // do validation here
 
-        // if validation passes, submit form
-        document.getElementById('ipcForm').dispatchEvent(new CustomEvent('submit'));
-    })
+    //     // if validation passes, submit form
+    //     document.getElementById('ipcForm').dispatchEvent(new CustomEvent('submit'));
+    // })
 
     // Get FormData and save it to RELAN-IN.txt
     document.getElementById('ipcForm').addEventListener('submit', event => {
         event.preventDefault();
+
         const form = event.target;
+        if (!form.checkValidity()) {
+            // let reported = false;
+            // for (input of form.querySelectorAll('input, select')) {
+            //     console.log("input is ", input)
+            //     if (!input.checkValidity()) {
+            //         input.scrollIntoView({behavior: "smooth", block: "center", inline: "center"});
+            //         input.reportValidity();
+            //         reported = true;
+            //         break;
+            //     }
+            // }
+            // if (!reported) {
+            //     form.reportValidity();
+            // }
+            form.classList.add('was-validated');
+            return;
+        }
+
         const fd = new FormData(form);
         saveFormDataToFile(form, fd);
     })

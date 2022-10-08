@@ -24,7 +24,7 @@
 
   <body>
   <div class="container">
-    <form id="ipcForm" method="POST">
+    <form id="ipcForm" class="needs-validation" method="POST" novalidate>
       <!-- R E S E T, disabled for now 
       <div class="mb-3">
         <button type="reset" class="btn btn-primary"> R E S E T </button> 
@@ -77,6 +77,9 @@
       <div class="mb-3">
         <label for="maxm" class="form-label">Number of Variables (M):</label>
         <input name="Number of Variables (M) (max = 100, not licensed: max = 4):" type="number" min="1" max="100" class="form-control" id="maxm">
+        <div class="invalid-feedback">
+          Please provide a valid number.
+        </div>
         <div id="maxmHelp" class="form-text"> 
           <ul>
             <li>Number must be a positive integer.</li>
