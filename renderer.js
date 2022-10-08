@@ -40,24 +40,12 @@ document.addEventListener('DOMContentLoaded', (event) => {
             for (el of isLicensedMattersEl) {
                 const max = el.dataset.freeVersionMax
                 el.setAttribute("max", max);
+                // todo: can I update help field to show max number that can be entered?
             }
         }
 
         // Step 3: Check form validity and give user feedback
         if (!form.checkValidity()) {
-            // let reported = false;
-            // for (input of form.querySelectorAll('input, select')) {
-            //     console.log("input is ", input)
-            //     if (!input.checkValidity()) {
-            //         input.scrollIntoView({behavior: "smooth", block: "center", inline: "center"});
-            //         input.reportValidity();
-            //         reported = true;
-            //         break;
-            //     }
-            // }
-            // if (!reported) {
-            //     form.reportValidity();
-            // }
             form.classList.add('was-validated');
             return;
         }

@@ -3,15 +3,8 @@ function saveFormDataToFile(form, formData) {
     const data = [];
     for (const [key, value] of fd) {
         //console.log(`${key} => ${value}`);
-        
-        // TODO: ENABLE FOR PRODUCTION
-        // // Step 1: VALIDATION
-        // if (value === "") {
-        //     alert("VALUE EMPTY NONO");
-        //     return false;
-        // }
 
-        // Step  2: VALUE EXTRACTION
+        // Step  1: VALUE EXTRACTION
         const el = form.querySelector(`[name="${key}"]`)
         if (el.dataset['nonRelanInputField'] === 'true') {
             // fields we do not want to add to the output
@@ -26,7 +19,7 @@ function saveFormDataToFile(form, formData) {
         }
     }
 
-    // Step 3: SAVE FILE
+    // Step 2: SAVE FILE
     var blob = new Blob([data.join('\n') + '\n'], {type: "text/plain"});
     var url = window.URL.createObjectURL(blob);
     var anchor = document.createElement("a");

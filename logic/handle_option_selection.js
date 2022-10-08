@@ -16,7 +16,6 @@ function handleOptionSelection(optionValue) {
     // hide unnecessary parameters from user
     // CONNECTIONS
     if (optionValue === '0') {
-        console.log(event)
         document.getElementById('simParameterDiv').classList.add('hidden');
         document.getElementById('extractParamDiv').classList.add('hidden');
         document.getElementById('extractionModelDiv').classList.add('hidden');
@@ -28,7 +27,6 @@ function handleOptionSelection(optionValue) {
     }
     // IMPLICATION
     else if (optionValue === '1') {
-        console.log(event)
         document.getElementById('simParameterDiv').classList.add('hidden');
         document.getElementById('extractParamDiv').classList.add('hidden');
         document.getElementById('extractionModelDiv').classList.add('hidden');
@@ -40,7 +38,6 @@ function handleOptionSelection(optionValue) {
     }
     // CONFIRMATION
     else if (optionValue === '2') {
-        console.log(event)
         document.getElementById('simParameterDiv').classList.add('hidden');
         document.getElementById('inclusionCriteriaDiv').classList.add('hidden');
         document.getElementById('yCutDiv').classList.add('hidden');
@@ -49,7 +46,6 @@ function handleOptionSelection(optionValue) {
     }
     // SIMULATION
     else if (optionValue === '3') {
-        console.log(event)
         document.getElementById('dataInputDiv').classList.add('hidden');
         document.getElementById('dataFormatDiv').classList.add('hidden');
         document.getElementById('dichtomisationDiv').classList.add('hidden');

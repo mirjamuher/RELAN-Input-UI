@@ -60,7 +60,7 @@
       <!-- Project Title -->
       <div class="mb-3">
         <label for="title" class="form-label">Title:</label>
-        <input type="text" maxlength="80" class="form-control" id="title" name="Title:">
+        <input type="text" maxlength="80" class="form-control" id="title" name="Title:" required>
         <div class="invalid-feedback">
           Please enter a valid title.
         </div>
@@ -73,31 +73,37 @@
       <!-- Option -->
       <div class="mb-3">
         <label for="option" class="form-label">Option:</label>
-          <select name="Option (0 = connections, 1 = implications, 2 = confirmation, 3 = simulation):" id="option" class="form-select" aria-label="example value (?)">
-            <option selected>Choose one:</option>
+          <select name="Option (0 = connections, 1 = implications, 2 = confirmation, 3 = simulation):" id="option" class="form-select" aria-label="example value (?)" required>
+            <option selected disabled value="">Choose one:</option>
             <option value="0">Connections</option>
             <option value="1">Implications</option>
             <option value="2">Confirmation</option>
             <option value="3">Simulation</option>
           </select>
+          <div class="invalid-feedback">
+            Please choose an option.
+          </div>
           <div class="form-text"></div>
       </div>
 
       <!-- Data Input -->
       <div class="mb-3" id="dataInputDiv">
         <label class="form-label">Data Input:</label>
-          <select name="Data Input (1 = RELAN-DAT (matrix input), 2 = RELAN-KAT (vector input)):" class="form-select" aria-label="example value (?)">
-            <option selected>Choose one:</option>
+          <select name="Data Input (1 = RELAN-DAT (matrix input), 2 = RELAN-KAT (vector input)):" class="form-select" aria-label="example value (?)" required>
+            <option selected disabled value>Choose one:</option>
             <option value="1">RELAN-DAT (matrix input)</option>
             <option value="2">RELAN-KAT (vector input)</option>
           </select>
+          <div class="invalid-feedback">
+            Please choose an option.
+          </div>
           <div class="form-text">Select the data input file.</div>
       </div>
 
       <!-- Number of Variables -->
       <div class="mb-3">
         <label for="maxm" class="form-label">Number of Variables (M):</label>
-        <input name="Number of Variables (M) (max = 100, not licensed: max = 4):" type="number" min="1" max="100" class="form-control" id="maxm" data-free-version-max="4">
+        <input name="Number of Variables (M) (max = 100, not licensed: max = 4):" type="number" min="1" max="100" class="form-control" id="maxm" data-free-version-max="4" required>
         <div class="invalid-feedback">
           Please provide a valid number.
         </div>
@@ -114,18 +120,21 @@
       <!-- Dichotomisation -->
       <div class="mb-3" id="dichtomisationDiv">
         <label class="form-label">Dichotomisation:</label>
-          <select name="Dichotomisation (0 = no,1 = yes):" class="form-select" aria-label="example value (?)">
-            <option selected>Choose one:</option>
+          <select name="Dichotomisation (0 = no,1 = yes):" class="form-select" aria-label="example value (?)" required>
+            <option selected disabled value>Choose one:</option>
             <option value="1">Yes</option>
             <option value="0">No</option>
           </select>
+          <div class="invalid-feedback">
+            Please choose an option.
+          </div>
           <div class="form-text">If yes, the input data will be dichotomised by using the vector of dichotomisation.</div>
       </div>
 
       <!-- Names of Variables -->
       <div class="mb-3">
         <label for="nameOfVars" class="form-label">Names of Variables:</label>
-        <input name="Names of Variables (max = 100)(three alphanumeric symbols, spaces as delimiters):" type="text" pattern="^\s*[a-zA-Z0-9]{3}(\s+[a-zA-Z0-9]{3})*\s*$" class="form-control" id="nameOfVars">
+        <input name="Names of Variables (max = 100)(three alphanumeric symbols, spaces as delimiters):" type="text" pattern="^\s*[a-zA-Z0-9]{3}(\s+[a-zA-Z0-9]{3})*\s*$" class="form-control" id="nameOfVars" required>
         <div class="invalid-feedback">
           Please provide value consisting of three alphanumerical symbols and seperated by at least one space.
         </div>
@@ -142,7 +151,7 @@
       <!-- Vector of Dichotomisation -->
       <div class="mb-3" id="vectorOfDichtomisationDiv">
         <label for="vectorOfDichotomisation" class="form-label">Vector of Dichotomisation:</label>
-        <input name="Vector of Dichotomisation (max = 100, floating point format, spaces as delimiters):" type="text" pattern="^\s*([0-9]+(\.[0-9]+)?|\.[0-9]+)(\s+([0-9]+(\.[0-9]+)?|\.[0-9]+))*\s*$" class="form-control" id="vectorOfDichotomisation">
+        <input name="Vector of Dichotomisation (max = 100, floating point format, spaces as delimiters):" type="text" pattern="^\s*([0-9]+(\.[0-9]+)?|\.[0-9]+)(\s+([0-9]+(\.[0-9]+)?|\.[0-9]+))*\s*$" class="form-control" id="vectorOfDichotomisation" required>
         <div class="invalid-feedback">
           Please provide positive numbers seperated by at least one space. <br>
           Please ensure you are using full stops (.) and not commas (,) to mark numbers with decimal places.
@@ -161,7 +170,7 @@
       <!-- Probabilities of the Apriori Random Model -->
       <div class="mb-3">
         <label for="aprioriProbabilities" class="form-label">Probabilities of the Apriori Random Model:</label>
-        <input name="Probabilities of the Apriori Random Model (max = 100)(floating point format, spaces as delimiters):" type="text" pattern="^\s*(([0](\.[0-9]{1,2})?|\.[0-9]{1,2})|1(\.0*)?)(\s+(([0](\.[0-9]{1,2})?|\.[0-9]{1,2})|1(\.0*)?))*\s*$" class="form-control" id="aprioriProbabilities">
+        <input name="Probabilities of the Apriori Random Model (max = 100)(floating point format, spaces as delimiters):" type="text" pattern="^\s*(([0](\.[0-9]{1,2})?|\.[0-9]{1,2})|1(\.0*)?)(\s+(([0](\.[0-9]{1,2})?|\.[0-9]{1,2})|1(\.0*)?))*\s*$" class="form-control" id="aprioriProbabilities" required>
         <div class="invalid-feedback">
           Please provide positive numbers between 0 and 1 seperated by at least one space. <br>
           Please ensure you are using full stops (.) and not commas (,) to mark numbers with decimal places.
@@ -180,7 +189,7 @@
       <!-- Order of Causality -->
       <div class="mb-3">
         <label for="orderOfCausality" class="form-label">Order of Causality:</label>
-        <input name="Order of Causality (max = 100)(integer format, spaces as delimiters):" type="text" pattern="^\s*[0-9]+(\s+([0-9]+))*\s*$" class="form-control" id="orderOfCausality">
+        <input name="Order of Causality (max = 100)(integer format, spaces as delimiters):" type="text" pattern="^\s*[0-9]+(\s+([0-9]+))*\s*$" class="form-control" id="orderOfCausality" required>
         <div class="invalid-feedback">
           Please provide positive integers seperated by at least one space.        
         </div>
@@ -198,7 +207,7 @@
       <!-- Duration of Causality -->
       <div class="mb-3">
         <label for="durationOfCausality" class="form-label">Duration of Causality:</label>
-        <input name="Duration of Causality (max = 100)(integer format, spaces as delimiters):" type="text" pattern="^\s*[0-9]+(\s+([0-9]+))*\s*$" class="form-control" id="durationOfCausality">
+        <input name="Duration of Causality (max = 100)(integer format, spaces as delimiters):" type="text" pattern="^\s*[0-9]+(\s+([0-9]+))*\s*$" class="form-control" id="durationOfCausality" required>
         <div class="invalid-feedback">
           Please provide positive integers seperated by at least one space.        
         </div>
@@ -216,7 +225,10 @@
       <!-- Sample Size -->
       <div class="mb-3">
         <label for="m" class="form-label">Sample Size:</label>
-        <input name="Sample Size (N) (max = 1000, not licensed: max = 50):" type="number" min="1" max="1000" class="form-control" id="m" data-free-version-max="50">
+        <input name="Sample Size (N) (max = 1000, not licensed: max = 50):" type="number" min="1" max="1000" class="form-control" id="m" data-free-version-max="50" required>
+        <div class="invalid-feedback">
+          Please provide a valid number. 
+        </div>
         <div id="mHelp" class="form-text"> 
           <ul>
             <li>Value must be a positive integer.</li>
@@ -230,31 +242,37 @@
       <!-- Print Extent -->
       <div class="mb-3">
         <label class="form-label">Print Extent:</label>
-          <select name="Print Extent(0,1,2,3 = max):" class="form-select" aria-label="example value (?)">
-            <option selected>Choose one:</option>
+          <select name="Print Extent(0,1,2,3 = max):" class="form-select" aria-label="example value (?)" required>
+            <option selected disabled value>Choose one:</option>
             <option value="0">0</option>
             <option value="1">1</option>
             <option value="2">2</option>
             <option value="3">3</option>
           </select>
+          <div class="invalid-feedback">
+            Please choose an option.
+          </div>
           <div class="form-text">0 will set the detail level in the output file to the least detailed, 3 to the most detailed.</div>
       </div>
 
       <!-- Selected Random Model -->
       <div class="mb-3">
         <label class="form-label">Hypothesis Random Model:</label>
-          <select name="Hypothesis Random Model (1 = apriori, 0 = aposteriori)" class="form-select" aria-label="example value (?)">
-            <option selected>Choose one:</option>
+          <select name="Hypothesis Random Model (1 = apriori, 0 = aposteriori)" class="form-select" aria-label="example value (?)" required>
+            <option selected disabled value>Choose one:</option>
             <option value="1">Apriori</option>
             <option value="0">Aposteriori</option>
           </select>
+          <div class="invalid-feedback">
+            Please choose an option.
+          </div>
           <div class="form-text"></div>
       </div>
 
       <!-- Level of Significance -->
       <div class="mb-3">
         <label for="zsig" class="form-label">Level of Significance (Zsig.):</label>
-        <input name="Level of Significance (Zsig.)(depending on apriori or aposteriori hypothesis random model:" type="number" step="0.001" min="0" max="30" class="form-control" id="levelOfSignificance">
+        <input name="Level of Significance (Zsig.)(depending on apriori or aposteriori hypothesis random model:" type="number" step="0.001" min="0" max="30" class="form-control" id="levelOfSignificance" required>
         <div class="invalid-feedback">
           Please provide a valid number.        
         </div>
@@ -271,7 +289,7 @@
       <!-- Level of Simulation -->
       <div class="mb-3" id="simParameterDiv">
         <label for="simParameter" class="form-label">Level of Simulation (Zsim):</label>
-        <input name="Level of Simulation (Zsim.) (simulations are allways computed with apriori probabilities):" type="number" step="0.001" min="0" max="30" class="form-control" id="simParameter">
+        <input name="Level of Simulation (Zsim.) (simulations are allways computed with apriori probabilities):" type="number" step="0.001" min="0" max="30" class="form-control" id="simParameter" required>
         <div class="invalid-feedback">
           Please provide a valid number.        
         </div>
@@ -287,7 +305,7 @@
       <!-- Level of Extraction -->
       <div class="mb-3" id="extractParamDiv">
         <label for="extracParam" class="form-label">Level of Extraction (Zext):</label>
-        <input name="Level of Extraction(Zext.) (if zero: no extraction will be performed)" data-begin-multivalued-line="true" type="number" step="0.001" min="0" max="30" class="form-control" id="extracParam">
+        <input name="Level of Extraction(Zext.) (if zero: no extraction will be performed)" data-begin-multivalued-line="true" type="number" step="0.001" min="0" max="30" class="form-control" id="extracParam" required>
         <div class="invalid-feedback">
           Please provide a valid number.        
         </div>
@@ -304,22 +322,28 @@
       <!-- Extraction Random Model -->
       <div class="mb-3" id="extractionModelDiv">
         <label class="form-label">Extraction Random Model:</label>
-          <select name="Extraction Random Model: 1 = apriori 0 = aposteriori:" data-append-to-prior="true" class="form-select" aria-label="example value (?)">
-            <option selected>Choose one:</option>
+          <select name="Extraction Random Model: 1 = apriori 0 = aposteriori:" data-append-to-prior="true" class="form-select" aria-label="example value (?)" required>
+            <option selected disabled value>Choose one:</option>
             <option value="1">Apriori</option>
             <option value="0">Aposteriori</option>
           </select>
+          <div class="invalid-feedback">
+            Please choose an option.
+          </div>
           <div class="form-text"></div>
       </div>
 
       <!-- Inclusion Criterion -->
       <div class="mb-3" id="inclusionCriteriaDiv">
         <label class="form-label">Inclusion-Criterion:</label>
-          <select name="Inclusion-Criterion (1 = norm, 0 = not norm.)" data-begin-multivalued-line="true" id="inclusionCriteria" class="form-select" aria-label="example value (?)">
-            <option selected>Choose one:</option>
+          <select name="Inclusion-Criterion (1 = norm, 0 = not norm.)" data-begin-multivalued-line="true" id="inclusionCriteria" class="form-select" aria-label="example value (?)" required>
+            <option selected disabled value>Choose one:</option>
             <option value="1">norm</option>
             <option value="0">not norm</option>
           </select>
+          <div class="invalid-feedback">
+            Please choose an option.
+          </div>
           <div class="form-text">
             Choose to use normalised or not-normalised Zsig-values.
           </div>
@@ -328,7 +352,7 @@
       <!-- Y(p)-Cut -->
       <div class="mb-3" id="yCutDiv">
         <label for="yCut" class="form-label">Y(p)-Cut:</label>
-        <input name="Y(p)-Cut(0.0...1.0)" data-append-to-prior="true" type="number" step="0.001" min="0" max="1" class="form-control" id="yCut">
+        <input name="Y(p)-Cut(0.0...1.0)" data-append-to-prior="true" type="number" step="0.001" min="0" max="1" class="form-control" id="yCut" required>
         <div class="invalid-feedback">
           Please provide a valid number.        
         </div>
@@ -346,7 +370,7 @@
       <!-- X(p)-Cut -->
       <div class="mb-3" id="xCutDiv">
         <label for="xCut" class="form-label">X(p)-Cut:</label>
-        <input name="X(p)-Cut(0.0...1.0):" data-append-to-prior="true" type="number" step="0.001" min="0" max="1" class="form-control" id="xCut">
+        <input name="X(p)-Cut(0.0...1.0):" data-append-to-prior="true" type="number" step="0.001" min="0" max="1" class="form-control" id="xCut" required>
         <div class="invalid-feedback">
           Please provide a valid number.        
         </div>
@@ -364,11 +388,14 @@
       <!-- Graph Theoretical Analysis -->
       <div class="mb-3" id="graphAnalysisDiv">
         <label class="form-label">Graph Theoretical Analysis:</label>
-          <select name="Graph Theoretical Analysis (0 = no,1 = yes):" id="graphAnalysis" class="form-select" aria-label="example value (?)">
-            <option selected>Choose one:</option>
+          <select name="Graph Theoretical Analysis (0 = no,1 = yes):" id="graphAnalysis" class="form-select" aria-label="example value (?)" required>
+            <option selected disabled value>Choose one:</option>
             <option value="1">Yes</option>
             <option value="0">No</option>
           </select>
+          <div class="invalid-feedback">
+            Please choose an option.
+          </div>
           <div class="form-text">
             If yes is selected, graph theoretical analysis is performed for the signification implicational and connectional relations.
           </div>
@@ -377,11 +404,14 @@
       <!-- Weighting of Cases -->
       <div class="mb-3">
         <label class="form-label">Weighting of Cases:</label>
-          <select name="Weighting of Cases (0 = no, 1 = yes, file: RELAN-WEI):" class="form-select" aria-label="example value (?)">
-            <option selected>Choose one:</option>
+          <select name="Weighting of Cases (0 = no, 1 = yes, file: RELAN-WEI):" class="form-select" aria-label="example value (?)" required>
+            <option selected disabled value>Choose one:</option>
             <option value="1">Yes</option>
             <option value="0">No</option>
           </select>
+          <div class="invalid-feedback">
+            Please choose an option.
+          </div>
           <div class="form-text">
             If yes is selected, then cases will be weighed by the vector provided in "RELAN-WEI.txt".
           </div>
@@ -390,11 +420,14 @@
       <!-- Causal Analysis -->
       <div class="mb-3">
         <label class="form-label">Causal Analysis:</label>
-          <select name="Causal Analysis (0 = no, 1 = yes):" class="form-select" aria-label="example value (?)">
-            <option selected>Choose one:</option>
+          <select name="Causal Analysis (0 = no, 1 = yes):" class="form-select" aria-label="example value (?)" required>
+            <option selected disabled value>Choose one:</option>
             <option value="1">Yes</option>
             <option value="0">No</option>
           </select>
+          <div class="invalid-feedback">
+            Please choose an option.
+          </div>
           <div class="form-text">
             lf yes is selected, then the causal analysis will be elaborated on the basis of the "order" and "duration of causality".
           </div>
@@ -403,11 +436,14 @@
       <!-- Truth Function -->
       <div class="mb-3" id="truthFuncDiv">
         <label class="form-label">Truth Function:</label>
-          <select name="Truth Function (0 = boolean function from RELAN-IN, 1= truth values from RELAN-FCT):" class="form-select" aria-label="example value (?)">
-            <option selected>Choose one:</option>
+          <select name="Truth Function (0 = boolean function from RELAN-IN, 1= truth values from RELAN-FCT):" class="form-select" aria-label="example value (?)" required>
+            <option selected disabled value>Choose one:</option>
             <option value="0">Boolean function from "RELAN-IN"</option>
             <option value="1">Truth values from "RELAN-FCT"</option>
           </select>
+          <div class="invalid-feedback">
+            Please choose an option.
+          </div>
           <div class="form-text">
             Chooses if the truth function of the relation will be imported from "RELAN-FCT.txt" or from "RELAN-IN.txt" (which is generated by this GUI).
           </div>
@@ -417,9 +453,9 @@
       <!-- JS VALIDATION -->
       <div class="mb-3" id="hypoFuncDiv">
         <label for="hypoFunc" class="form-label">Hypothetical Function:</label>
-        <input name="Hypothetical Function (Restrictions: Signs &lt; 79, Variables &lt; 11, Brackets &lt; 31:------too long--------" type="text" maxlength="80" class="form-control" id="hypoFunc">
+        <input name="Hypothetical Function (Restrictions: Signs &lt; 79, Variables &lt; 11, Brackets &lt; 31:------too long--------" type="text" maxlength="80" class="form-control" id="hypoFunc" required>
         <div class="invalid-feedback">
-          Entry can be max 80 characters long.
+          Please enter a valid function.
         </div>
         <div id="hypoFuncHelp" class="form-text"> 
           <ul>
@@ -436,9 +472,9 @@
       <!-- JS VALIDATION -->
       <div class="mb-3" id="extraFuncDiv">
         <label for="extraFunc" class="form-label">Extractional Function:</label>
-        <input name="Extractional Function (Restrictions: Signs &lt; 79, Variables &lt; 11, Brackets &lt; 31:------too long--------" type="text" maxlength="80" class="form-control" id="extraFunc">
+        <input name="Extractional Function (Restrictions: Signs &lt; 79, Variables &lt; 11, Brackets &lt; 31:------too long--------" type="text" maxlength="80" class="form-control" id="extraFunc" required>
         <div class="invalid-feedback">
-          Entry can be max 80 characters long.
+          Please enter a valid function.
         </div>
         <div id="extraFuncHelp" class="form-text"> 
           <ul>
