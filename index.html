@@ -167,10 +167,10 @@
         </div>
       </div> 
 
-      <!-- Probabilities of the Apriori Random Model -->
+      <!-- Probabilities of the Apriori Chance Model -->
       <div class="mb-3">
-        <label for="aprioriProbabilities" class="form-label">Probabilities of the Apriori Random Model:</label>
-        <input name="Probabilities of the Apriori Random Model (max = 100)(floating point format, spaces as delimiters):" type="text" pattern="^\s*(([0](\.[0-9]{1,2})?|\.[0-9]{1,2})|1(\.0*)?)(\s+(([0](\.[0-9]{1,2})?|\.[0-9]{1,2})|1(\.0*)?))*\s*$" class="form-control" id="aprioriProbabilities" required>
+        <label for="aprioriProbabilities" class="form-label">Probabilities of the Apriori Chance Model:</label>
+        <input name="Probabilities of the Apriori Chance Model (max = 100)(floating point format, spaces as delimiters):" type="text" pattern="^\s*(([0](\.[0-9]+)?|\.[0-9]+)|1(\.0*)?)(\s+(([0](\.[0-9]+)?|\.[0-9]+)|1(\.0*)?))*\s*$" class="form-control" id="aprioriProbabilities" required>
         <div class="invalid-feedback">
           Please provide positive numbers between 0 and 1 seperated by at least one space. <br>
           Please ensure you are using full stops (.) and not commas (,) to mark numbers with decimal places.
@@ -179,7 +179,6 @@
           <ul>
             <li>This field must have M values, where M is the value in "Number of Variables".</li>
             <li>Each number here is coindexed with the variable name in "Name of Variables".</li>
-            <li>Each number must have two decimal places, and be between 0 and 1.</li>
             <li>Each number must be seperated by at least one space.</li>
           </ul>
           Example: <code>0.50 0.50 0.50 0.50</code>
@@ -255,10 +254,10 @@
           <div class="form-text">0 will set the detail level in the output file to the least detailed, 3 to the most detailed.</div>
       </div>
 
-      <!-- Selected Random Model -->
+      <!-- Hypothesis Chance Model -->
       <div class="mb-3">
-        <label class="form-label">Hypothesis Random Model:</label>
-          <select name="Hypothesis Random Model (1 = apriori, 0 = aposteriori)" class="form-select"  required>
+        <label class="form-label">Hypothesis Chance Model:</label>
+          <select name="Hypothesis Chance Model (1 = apriori, 0 = aposteriori)" class="form-select"  required>
             <option selected disabled value>Choose one:</option>
             <option value="1">Apriori</option>
             <option value="0">Aposteriori</option>

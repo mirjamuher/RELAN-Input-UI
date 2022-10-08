@@ -4,7 +4,7 @@ function saveFormDataToFile(form, formData) {
     for (const [key, value] of fd) {
         //console.log(`${key} => ${value}`);
 
-        // Step  1: VALUE EXTRACTION
+        // VALUE EXTRACTION
         const el = form.querySelector(`[name="${key}"]`)
         if (el.dataset['nonRelanInputField'] === 'true') {
             // fields we do not want to add to the output
@@ -19,7 +19,7 @@ function saveFormDataToFile(form, formData) {
         }
     }
 
-    // Step 2: SAVE FILE
+    // SAVE FILE
     var blob = new Blob([data.join('\n') + '\n'], {type: "text/plain"});
     var url = window.URL.createObjectURL(blob);
     var anchor = document.createElement("a");
