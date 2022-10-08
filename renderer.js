@@ -30,7 +30,8 @@ document.addEventListener('DOMContentLoaded', (event) => {
     // Get FormData and save it to RELAN-IN.txt
     document.getElementById('ipcForm').addEventListener('submit', event => {
         event.preventDefault();
-        const fd = new FormData(event.target);
-        saveFormDataToFile(fd);
+        const form = event.target;
+        const fd = new FormData(form);
+        saveFormDataToFile(form, fd);
     })
 });

@@ -1,4 +1,4 @@
-function saveFormDataToFile(formData) {
+function saveFormDataToFile(form, formData) {
     const fd = formData;
     const data = [];
     for (const [key, value] of fd) {
@@ -12,7 +12,7 @@ function saveFormDataToFile(formData) {
         // }
 
         // Step  2: VALUE EXTRACTION
-        const el = event.target.querySelector(`[name="${key}"]`)
+        const el = form.querySelector(`[name="${key}"]`)
         if (el.dataset['appendToPrior'] === 'true') {
             // some of the keys and values are grouped in the output
             data[data.length - 2] += ' / ' + key;
