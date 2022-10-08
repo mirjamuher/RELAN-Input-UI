@@ -29,9 +29,21 @@ document.addEventListener('DOMContentLoaded', (event) => {
 
     // Get FormData and save it to RELAN-IN.txt
     document.getElementById('ipcForm').addEventListener('submit', event => {
+        // Step 1: Prevent form from submitting
         event.preventDefault();
 
+        // Step 2: check if free version is used. If so, amend validation
         const form = event.target;
+        const freeVersion = document.getElementById('freeVersion').checked
+        if (freeVersion) {
+            isLicensedMattersEl = document.querySelectorAll('[data-free-version-max]');
+            for (el of isLicensedMattersEl) {
+                const max = el.dataset.freeVersionMax
+                el.setAttribute("max", max);
+            }
+        }
+
+        // Step 3: Check form validity and give user feedback
         if (!form.checkValidity()) {
             // let reported = false;
             // for (input of form.querySelectorAll('input, select')) {

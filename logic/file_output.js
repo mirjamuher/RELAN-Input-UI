@@ -2,7 +2,7 @@ function saveFormDataToFile(form, formData) {
     const fd = formData;
     const data = [];
     for (const [key, value] of fd) {
-        console.log(`${key} => ${value}`);
+        //console.log(`${key} => ${value}`);
         
         // TODO: ENABLE FOR PRODUCTION
         // // Step 1: VALIDATION
@@ -15,7 +15,7 @@ function saveFormDataToFile(form, formData) {
         const el = form.querySelector(`[name="${key}"]`)
         if (el.dataset['nonRelanInputField'] === 'true') {
             // fields we do not want to add to the output
-            console.log(`NOT RELEVANT: ${key}`);
+            continue;
         } else if (el.dataset['appendToPrior'] === 'true') {
             // some of the keys and values are grouped in the output
             data[data.length - 2] += ' / ' + key;
