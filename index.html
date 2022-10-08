@@ -92,7 +92,6 @@
       </div>
 
       <!-- Number of Variables -->
-      <!-- JS VALIDATION for unlicensed -->
       <div class="mb-3">
         <label for="maxm" class="form-label">Number of Variables (M):</label>
         <input name="Number of Variables (M) (max = 100, not licensed: max = 4):" type="number" min="1" max="100" class="form-control" id="maxm" data-free-version-max="4">
@@ -121,41 +120,49 @@
       </div>
 
       <!-- Names of Variables -->
-      <!-- JS VALIDATION -->
       <div class="mb-3">
         <label for="nameOfVars" class="form-label">Names of Variables:</label>
-        <input name="Names of Variables (max = 100)(three alphanumeric symbols, spaces as delimiters):" type="text" class="form-control" id="nameOfVars">
+        <input name="Names of Variables (max = 100)(three alphanumeric symbols, spaces as delimiters):" type="text" pattern="^\s*[a-zA-Z0-9]{3}(\s+[a-zA-Z0-9]{3})*\s*$" class="form-control" id="nameOfVars">
+        <div class="invalid-feedback">
+          Please provide value consisting of three alphanumerical symbols and seperated by at least one space.
+        </div>
         <div id="nameOfVarsHelp" class="form-text"> 
           <ul>
             <li>This field must have M values, where M is the value in "Number of Variables".</li>
-            <li>Each variable must consist of three alphanumerical symbols.</li>
-            <li>Each variable name must be seperated by at least one space.</li>
+            <li>Each value must consist of three alphanumerical symbols.</li>
+            <li>Each value name must be seperated by at least one space.</li>
           </ul>
           Example: <code>VAC ANT REC PRO</code>
         </div>
       </div> 
 
       <!-- Vector of Dichotomisation -->
-      <!-- JS VALIDATION -->
       <div class="mb-3" id="vectorOfDichtomisationDiv">
         <label for="vectorOfDichotomisation" class="form-label">Vector of Dichotomisation:</label>
-        <input name="Vector of Dichotomisation (max = 100, floating point format, spaces as delimiters):" type="text" class="form-control" id="vectorOfDichotomisation">
+        <input name="Vector of Dichotomisation (max = 100, floating point format, spaces as delimiters):" type="text" pattern="^\s*([0-9]+(\.[0-9]+)?|\.[0-9]+)(\s+([0-9]+(\.[0-9]+)?|\.[0-9]+))*\s*$" class="form-control" id="vectorOfDichotomisation">
+        <div class="invalid-feedback">
+          Please provide positive numbers seperated by at least one space. <br>
+          Please ensure you are using full stops (.) and not commas (,) to mark numbers with decimal places.
+        </div>
         <div id="vectorHelp" class="form-text"> 
           <ul>
             <li>This field must have M values, where M is the value in "Number of Variables".</li>
             <li>Each number here is coindexed with the variable name in "Name of Variables".</li>
-            <!-- Comment for myself: can be any number -->
             <li>Each number must be seperated by at least one space.</li>
+            <li>Each number can have decimal places.</li>
           </ul>
           Example: <code>0.50 0.50 0.50 0.50</code>
         </div>
       </div> 
 
       <!-- Probabilities of the Apriori Random Model -->
-      <!-- JS VALIDATION -->
       <div class="mb-3">
         <label for="aprioriProbabilities" class="form-label">Probabilities of the Apriori Random Model:</label>
-        <input name="Probabilities of the Apriori Random Model (max = 100)(floating point format, spaces as delimiters):" type="text" class="form-control" id="aprioriProbabilities">
+        <input name="Probabilities of the Apriori Random Model (max = 100)(floating point format, spaces as delimiters):" type="text" pattern="^\s*(([0](\.[0-9]{1,2})?|\.[0-9]{1,2})|1(\.0*)?)(\s+(([0](\.[0-9]{1,2})?|\.[0-9]{1,2})|1(\.0*)?))*\s*$" class="form-control" id="aprioriProbabilities">
+        <div class="invalid-feedback">
+          Please provide positive numbers between 0 and 1 seperated by at least one space. <br>
+          Please ensure you are using full stops (.) and not commas (,) to mark numbers with decimal places.
+        </div>
         <div id="aprioriProbabilitiesHelp" class="form-text"> 
           <ul>
             <li>This field must have M values, where M is the value in "Number of Variables".</li>
