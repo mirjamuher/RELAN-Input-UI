@@ -16,7 +16,7 @@ function createWindow () {
   mainWindow.loadFile('index.html')
 
   // Open the DevTools.
-  mainWindow.webContents.openDevTools() // TODO: disable when code is ready for production
+  //mainWindow.webContents.openDevTools() // TODO: disable when code is ready for production
 }
 
 

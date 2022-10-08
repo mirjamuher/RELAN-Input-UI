@@ -16,17 +16,6 @@ document.addEventListener('DOMContentLoaded', (event) => {
         handleOptionSelection(event.target.value);
     });
 
-    // WIP: have button do a validation check while we still have access to the elements, before moving to the submit event with just formData
-    // have button validate fields before triggering submit event
-    // const submitBtn = document.getElementById('saveBtn');
-    // submitBtn.addEventListener('click', event => {
-    //     alert("BTN WAS CLICKED");
-    //     // do validation here
-
-    //     // if validation passes, submit form
-    //     document.getElementById('ipcForm').dispatchEvent(new CustomEvent('submit'));
-    // })
-
     // Get FormData and save it to RELAN-IN.txt
     document.getElementById('ipcForm').addEventListener('submit', event => {
         // Step 1: Prevent form from submitting
