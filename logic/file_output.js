@@ -13,7 +13,10 @@ function saveFormDataToFile(form, formData) {
 
         // Step  2: VALUE EXTRACTION
         const el = form.querySelector(`[name="${key}"]`)
-        if (el.dataset['appendToPrior'] === 'true') {
+        if (el.dataset['nonRelanInputField'] === 'true') {
+            // fields we do not want to add to the output
+            console.log(`NOT RELEVANT: ${key}`);
+        } else if (el.dataset['appendToPrior'] === 'true') {
             // some of the keys and values are grouped in the output
             data[data.length - 2] += ' / ' + key;
             data[data.length - 1] += '\t' + value;

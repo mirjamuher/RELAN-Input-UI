@@ -30,6 +30,25 @@
         <button type="reset" class="btn btn-primary"> R E S E T </button> 
       </div> -->
 
+      <!-- Licensed? -->
+      <div class="mb-3">
+        <label for="selectLicensed" class="form-label">Which version of RELAN are you using?</label>
+        <div id="selectLicensed">
+          <div class="form-check form-check-inline">
+            <input class="form-check-input" type="radio" name="selectLicensed" id="licensedVersion" checked data-non-RELAN-input-field="true">
+            <label class="form-check-label" for="licensedVersion">
+              Licensed
+            </label>
+          </div>
+          <div class="form-check form-check-inline">
+            <input class="form-check-input" type="radio" name="selectLicensed" id="freeVersion" data-non-RELAN-input-field="true">
+            <label class="form-check-label" for="freeVersion">
+              Free
+            </label>
+          </div>
+        </div>
+      </div>   
+
       <!-- F I L E  U P L O A D -->
       <div class="mb-3">
         <input id="fileReader" type="file" accept=".txt" class="" data-non-RELAN-input-field="true" />

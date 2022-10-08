@@ -54,7 +54,7 @@ function handleFileInput(files){
                     if (inputEl.dataset["appendToPrior"] === "true") {
                         // inputElement is marked with being in same line as prior inputElement
                         if (valueList.length === 0) {
-                            console.error(`Error: Expected value is missing. We were at input element ${inptuEl}.`);
+                            console.error(`Error: Expected value is missing. We were at input element ${inputEl.innerHTML}.`);
                             alert('Parsing of document failed.\nPlease ensure you selected "RELAN-IN.txt" and try again.');
                             return;
                         } else {
