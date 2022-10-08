@@ -73,7 +73,7 @@
       <!-- Option -->
       <div class="mb-3">
         <label for="option" class="form-label">Option:</label>
-          <select name="Option (0 = connections, 1 = implications, 2 = confirmation, 3 = simulation):" id="option" class="form-select" aria-label="example value (?)" required>
+          <select name="Option (0 = connections, 1 = implications, 2 = confirmation, 3 = simulation):" id="option" class="form-select" required>
             <option selected disabled value="">Choose one:</option>
             <option value="0">Connections</option>
             <option value="1">Implications</option>
@@ -89,7 +89,7 @@
       <!-- Data Input -->
       <div class="mb-3" id="dataInputDiv">
         <label class="form-label">Data Input:</label>
-          <select name="Data Input (1 = RELAN-DAT (matrix input), 2 = RELAN-KAT (vector input)):" class="form-select" aria-label="example value (?)" required>
+          <select name="Data Input (1 = RELAN-DAT (matrix input), 2 = RELAN-KAT (vector input)):" class="form-select" required>
             <option selected disabled value>Choose one:</option>
             <option value="1">RELAN-DAT (matrix input)</option>
             <option value="2">RELAN-KAT (vector input)</option>
@@ -120,7 +120,7 @@
       <!-- Dichotomisation -->
       <div class="mb-3" id="dichtomisationDiv">
         <label class="form-label">Dichotomisation:</label>
-          <select name="Dichotomisation (0 = no,1 = yes):" class="form-select" aria-label="example value (?)" required>
+          <select name="Dichotomisation (0 = no,1 = yes):" class="form-select"  required>
             <option selected disabled value>Choose one:</option>
             <option value="1">Yes</option>
             <option value="0">No</option>
@@ -242,7 +242,7 @@
       <!-- Print Extent -->
       <div class="mb-3">
         <label class="form-label">Print Extent:</label>
-          <select name="Print Extent(0,1,2,3 = max):" class="form-select" aria-label="example value (?)" required>
+          <select name="Print Extent(0,1,2,3 = max):" class="form-select"  required>
             <option selected disabled value>Choose one:</option>
             <option value="0">0</option>
             <option value="1">1</option>
@@ -258,7 +258,7 @@
       <!-- Selected Random Model -->
       <div class="mb-3">
         <label class="form-label">Hypothesis Random Model:</label>
-          <select name="Hypothesis Random Model (1 = apriori, 0 = aposteriori)" class="form-select" aria-label="example value (?)" required>
+          <select name="Hypothesis Random Model (1 = apriori, 0 = aposteriori)" class="form-select"  required>
             <option selected disabled value>Choose one:</option>
             <option value="1">Apriori</option>
             <option value="0">Aposteriori</option>
@@ -322,7 +322,7 @@
       <!-- Extraction Random Model -->
       <div class="mb-3" id="extractionModelDiv">
         <label class="form-label">Extraction Random Model:</label>
-          <select name="Extraction Random Model: 1 = apriori 0 = aposteriori:" data-append-to-prior="true" class="form-select" aria-label="example value (?)" required>
+          <select name="Extraction Random Model: 1 = apriori 0 = aposteriori:" data-append-to-prior="true" class="form-select"  required>
             <option selected disabled value>Choose one:</option>
             <option value="1">Apriori</option>
             <option value="0">Aposteriori</option>
@@ -336,7 +336,7 @@
       <!-- Inclusion Criterion -->
       <div class="mb-3" id="inclusionCriteriaDiv">
         <label class="form-label">Inclusion-Criterion:</label>
-          <select name="Inclusion-Criterion (1 = norm, 0 = not norm.)" data-begin-multivalued-line="true" id="inclusionCriteria" class="form-select" aria-label="example value (?)" required>
+          <select name="Inclusion-Criterion (1 = norm, 0 = not norm.)" data-begin-multivalued-line="true" id="inclusionCriteria" class="form-select"  required>
             <option selected disabled value>Choose one:</option>
             <option value="1">norm</option>
             <option value="0">not norm</option>
@@ -388,7 +388,7 @@
       <!-- Graph Theoretical Analysis -->
       <div class="mb-3" id="graphAnalysisDiv">
         <label class="form-label">Graph Theoretical Analysis:</label>
-          <select name="Graph Theoretical Analysis (0 = no,1 = yes):" id="graphAnalysis" class="form-select" aria-label="example value (?)" required>
+          <select name="Graph Theoretical Analysis (0 = no,1 = yes):" id="graphAnalysis" class="form-select"  required>
             <option selected disabled value>Choose one:</option>
             <option value="1">Yes</option>
             <option value="0">No</option>
@@ -404,7 +404,7 @@
       <!-- Weighting of Cases -->
       <div class="mb-3">
         <label class="form-label">Weighting of Cases:</label>
-          <select name="Weighting of Cases (0 = no, 1 = yes, file: RELAN-WEI):" class="form-select" aria-label="example value (?)" required>
+          <select name="Weighting of Cases (0 = no, 1 = yes, file: RELAN-WEI):" class="form-select"  required>
             <option selected disabled value>Choose one:</option>
             <option value="1">Yes</option>
             <option value="0">No</option>
@@ -420,7 +420,7 @@
       <!-- Causal Analysis -->
       <div class="mb-3">
         <label class="form-label">Causal Analysis:</label>
-          <select name="Causal Analysis (0 = no, 1 = yes):" class="form-select" aria-label="example value (?)" required>
+          <select name="Causal Analysis (0 = no, 1 = yes):" class="form-select"  required>
             <option selected disabled value>Choose one:</option>
             <option value="1">Yes</option>
             <option value="0">No</option>
@@ -436,7 +436,7 @@
       <!-- Truth Function -->
       <div class="mb-3" id="truthFuncDiv">
         <label class="form-label">Truth Function:</label>
-          <select name="Truth Function (0 = boolean function from RELAN-IN, 1= truth values from RELAN-FCT):" class="form-select" aria-label="example value (?)" required>
+          <select name="Truth Function (0 = boolean function from RELAN-IN, 1= truth values from RELAN-FCT):" class="form-select"  required>
             <option selected disabled value>Choose one:</option>
             <option value="0">Boolean function from "RELAN-IN"</option>
             <option value="1">Truth values from "RELAN-FCT"</option>
