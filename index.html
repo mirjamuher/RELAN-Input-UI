@@ -177,9 +177,9 @@
         <input name="Sample Size (N) (max = 1000, not licensed: max = 50):" type="number" min="1" max="1000" class="form-control" id="m">
         <div id="mHelp" class="form-text"> 
           <ul>
-            <li>Number must be a positive integer.</li>
-            <li>With the fully licensed version, number can be between 1 and 1000.</li>
-            <li>With the free version, number can be between 1 and 50.</li>
+            <li>Value must be a positive integer.</li>
+            <li>With the fully licensed version, value can be between 1 and 1000 inclusive.</li>
+            <li>With the free version, value can be between 1 and 50 inclusive.</li>
           </ul>
           Example: <code>800</code>
         </div>
@@ -217,8 +217,8 @@
         <div id="significanceHelp" class="form-text"> 
           Level of significance depends on apriori or aposteriori hypthesis random model.
           <ul>
-            <li>Number must be positive.</li>
-            <li>Number must have three decimal places.</li>
+            <li>Value must be positive and between 0.0 and 30.0 inclusive.</li>
+            <li>Value can have up to three decimal places.</li>
           </ul>
           Example: <code>1.645</code>
         </div>
@@ -230,8 +230,8 @@
         <input name="Level of Simulation (Zsim.) (simulations are allways computed with apriori probabilities):" type="number" class="form-control" id="simParameter">
         <div id="simParameterHelp" class="form-text"> 
           <ul>
-            <li>Number must be positive.</li>
-            <li>Number must have three decimal places.</li>
+            <li>Value must be positive and between 0.0 and 30.0 inclusive.</li>
+            <li>Value can have up to three decimal places.</li>
           </ul>
           Example: <code>10.000</code>
         </div>
@@ -242,10 +242,10 @@
         <label for="extracParam" class="form-label">Level of Extraction (Zext):</label>
         <input name="Level of Extraction(Zext.) (if zero: no extraction will be performed)" data-begin-multivalued-line="true" type="number" class="form-control" id="extracParam">
         <div id="extracParamHelp" class="form-text"> 
-          If Number is set to "0.000", no extraction will be performed.
+          If the value is set to "0.0", no extraction will be performed.
           <ul>
-            <li>Number must be positive.</li>
-            <li>Number must have three decimal places.</li>
+            <li>Value must be positive and between 0.0 and 30.0 inclusive.</li>
+            <li>Value can have up to three decimal places.</li>
           </ul>
           Example: <code>0.64</code>
         </div>
@@ -270,7 +270,9 @@
             <option value="1">norm</option>
             <option value="0">not norm</option>
           </select>
-          <div class="form-text"></div>
+          <div class="form-text">
+            Choose to use normalised or not-normalised Zsig-values.
+          </div>
       </div>  
 
       <!-- Y(p)-Cut -->
@@ -280,8 +282,9 @@
         <div id="yCutHelp" class="form-text"> 
           Restricts the output to the specified relative frequencies of the Y variables.
           <ul>
-            <li>Number must be positive.</li>
-            <li>Number must have two decimal places and be between 0 and 1.</li>
+            <li>This parameter is optional</li>
+            <li>Value must be between 0 and 1 inclusive.</li>
+            <li>Results are only considered if the relativ frequency of Y is bigger than Y(p)</li>
           </ul>
           Example: <code>0.20</code>
         </div>
@@ -294,8 +297,9 @@
         <div id="xCutHelp" class="form-text"> 
           Restricts the output to the specified relative frequencies of the X variables.
           <ul>
-            <li>Number must be positive.</li>
-            <li>Number must have two decimal places and be between 0 and 1.</li>
+            <li>This parameter is optional</li>
+            <li>Value must be between 0 and 1 inclusive.</li>
+            <li>Results are only considered if the relativ frequency of X is bigger than X(p)</li>
           </ul>
           Example: <code>0.20</code>
         </div>
@@ -310,7 +314,6 @@
             <option value="0">No</option>
           </select>
           <div class="form-text">
-            <code>!!! WICHTIG: STIMMT ES, DASS 1 FUER YES UND 0 FUER NO STEHT? (ist nicht ersichtlich von RELAN-IN.txt) !!! </code> <br>
             If yes is selected, graph theoretical analysis is performed for the signification implicational and connectional relations.
           </div>
       </div> 
@@ -337,7 +340,7 @@
             <option value="0">No</option>
           </select>
           <div class="form-text">
-            If yes is selected, then the causal analysis will be elaborated.
+            lf yes is selected, then the causal analysis will be elaborated on the basis of the "order" and "duration of causality".
           </div>
       </div> 
 
@@ -360,9 +363,10 @@
         <input name="Hypothetical Function (Restrictions: Signs &lt; 79, Variables &lt; 11, Brackets &lt; 31:------too long--------" type="text" class="form-control" id="hypoFunc">
         <div id="hypoFuncHelp" class="form-text"> 
           <ul>
-            <li>Function must have less than 79 characters.</li>
-            <li>Function may consist of up to 11 variables.</li>
-            <li>Function can contain up to 31 brackets.</li>
+            <li>Function must not have more than 80 characters.</li>
+            <li>Function must not include more variables than defined in "numbers of variables".</li>
+            <li>Function may contain at maximum 10 variables.</li>
+            <li>Function can contain at maximum 30 brackets.</li>
           </ul>
           Example: <code>((VAC * ANT) &gt; IMM) * (ILL &gt; IMM)</code>
         </div>
@@ -374,9 +378,10 @@
         <input name="Extractional Function (Restrictions: Signs &lt; 79, Variables &lt; 11, Brackets &lt; 31:------too long--------" type="text" class="form-control" id="extraFunc">
         <div id="extraFuncHelp" class="form-text"> 
           <ul>
-            <li>Function must have less than 79 characters.</li>
-            <li>Function may consist of up to 11 variables.</li>
-            <li>Function can contain up to 31 brackets.</li>
+            <li>Function must not have more than 80 characters.</li>
+            <li>Function must not include more variables than defined in "numbers of variables".</li>
+            <li>Function may contain at maximum 10 variables.</li>
+            <li>Function can contain at maximum 30 brackets.</li>
           </ul>
           Example: <code>((VAC * ANT) &gt; IMM) * (ILL &gt; IMM)</code>
         </div>
