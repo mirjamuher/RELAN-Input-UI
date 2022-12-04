@@ -4,8 +4,9 @@ function handleFileInput(files){
     let reader = new FileReader();
 
     reader.readAsText(file);
-    reader.onerror = function() {
-        alert('Upload failed.\nPlease ensure you selected "RELAN-IN.txt" and try again.')
+    reader.onerror = (event) => function() {
+        console.log(event)
+        alert('An error occurred.\nThe selected file cannot be used for RELAN.\n\nPlease create a new RELAN-IN.txt document by filling out this form by hand and clicking "SAVE"')
         return;
     }
 
@@ -54,8 +55,8 @@ function handleFileInput(files){
                     if (inputEl.dataset["appendToPrior"] === "true") {
                         // inputElement is marked with being in same line as prior inputElement
                         if (valueList.length === 0) {
-                            console.error(`Error: Expected value is missing. We were at input element ${inputEl.innerHTML}.`);
-                            alert('Parsing of document failed.\nPlease ensure you selected "RELAN-IN.txt" and try again.');
+                            console.error(`Error: Expected value is missing in one of the lines that take multiple value/inputElement pairs. Candidates can be found by searching in index.html for "data-append-to-prior"`);
+                            alert(`Parsing error.\nA value is missing in one of the lines taking multiple values.\n\nPlease ensure the formatting of the selected file is correct.\n\n If this problem persits, please create a new file by filling out this form by hand and clicking 'SAVE'.`)
                             return;
                         } else {
                             assignments.push([inputEl, valueList.shift()]);
@@ -70,7 +71,7 @@ function handleFileInput(files){
                             break;
                         } else {
                             console.error(`Error: Failed to assign all of the values on this line. Remaining is ${valueList}.`);
-                            alert('Parsing of document failed.\nPlease ensure you selected "RELAN-IN.txt" and try again.');
+                            alert(`Parsing error.\nThe values "${valueList}" in the provided document could not be assgined to a field.\n\nPlease ensure the formatting of the selected file is correct.\n\n If this problem persits, please create a new file by filling out this form by hand and clicking 'SAVE'.`);
                             return;
                         }
                     }
@@ -85,7 +86,7 @@ function handleFileInput(files){
         // If we exited the above loop without getting to the end of either of the two lists, something went wrong.
         if (!(iInput === inputElements.length && iValue === cleanedValuesList.length)) {
             console.error(`Error: The input file looks to be missing some lines. Not enough values found. ${iInput} != ${inputElements.length} || ${iValue} != ${cleanedValuesList.length}`);
-            alert('Parsing of document failed.\nPlease ensure you selected "RELAN-IN.txt" and try again.');
+            alert('Parsing error.\nThe document you uploaded does not conform to the "RELAN-IN.txt" format required by RELAN.\n\nPlease ensure the formatting of the selected file is correct.\n\n If this problem persits, please create a new file by filling out this form by hand and clicking "SAVE".')
             return;
         }
 
