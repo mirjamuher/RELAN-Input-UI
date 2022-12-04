@@ -47,7 +47,6 @@ function handleOptionSelection(optionValue) {
     // SIMULATION
     else if (optionValue === '3') {
         document.getElementById('dataInputDiv').classList.add('hidden');
-        document.getElementById('dataFormatDiv').classList.add('hidden');
         document.getElementById('dichtomisationDiv').classList.add('hidden');
         document.getElementById('vectorOfDichtomisationDiv').classList.add('hidden');
         document.getElementById('inclusionCriteriaDiv').classList.add('hidden');
