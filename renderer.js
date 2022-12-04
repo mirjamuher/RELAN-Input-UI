@@ -36,6 +36,8 @@ document.addEventListener('DOMContentLoaded', (event) => {
         // Step 3: Check form validity and give user feedback
         if (!form.checkValidity()) {
             form.classList.add('was-validated');
+            console.log("validation failed")
+            alert("Validation failed. Please check form for validation errors.")
             return;
         }
 
