@@ -55,10 +55,10 @@ function handleOptionSelection(optionValue) {
         document.getElementById('graphAnalysisDiv').classList.add('hidden');
     } else {
         console.error(`Error: invalid option value selected: ${optionValue}`);
-        alert("Unknown error occurred. Please restart program.");
+        alert("Unknown error occurred. Please restart program. Contact Dr. Maderthaner if problem persists");
     }
 
-    //set value of all hidden elements to '0'
+    // set value of all hidden elements to '0'
     document.querySelectorAll('.hidden').forEach(el => {
         var input = el.querySelector('input');
         if (input != null) {

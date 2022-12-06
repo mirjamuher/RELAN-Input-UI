@@ -35,7 +35,7 @@ function handleFileInput(files){
             // increment counter
             i += 1;
         }   
-
+        
         // get all input Elements from the form
         const inputElements = Array.from(document.getElementById('ipcForm').querySelectorAll('input:not([data-non-RELAN-input-field="true"]), select:not([data-non-RELAN-input-field="true"])'));
 

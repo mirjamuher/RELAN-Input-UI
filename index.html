@@ -83,6 +83,7 @@
         <label class="form-label">Data Input:</label>
           <select name="Data Input (1 = RELAN-DAT (matrix input), 2 = RELAN-KAT (vector input)):" class="form-select" required>
             <option selected disabled value>Choose one:</option>
+            <option hidden value="0"></option> <!-- For validation reasons we need to offer the option 0 -->
             <option value="1">RELAN-DAT (matrix input)</option>
             <option value="2">RELAN-KAT (vector input)</option>
           </select>
