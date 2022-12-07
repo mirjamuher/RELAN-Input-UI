@@ -19,8 +19,6 @@ function handleOptionSelection(optionValue) {
         document.getElementById('simParameterDiv').classList.add('hidden');
         document.getElementById('extractParamDiv').classList.add('hidden');
         document.getElementById('extractionModelDiv').classList.add('hidden');
-        document.getElementById('yCutDiv').classList.add('hidden');
-        document.getElementById('xCutDiv').classList.add('hidden');
         document.getElementById('truthFuncDiv').classList.add('hidden');
         document.getElementById('hypoFuncDiv').classList.add('hidden');
         document.getElementById('extraFuncDiv').classList.add('hidden');
@@ -34,8 +32,6 @@ function handleOptionSelection(optionValue) {
         document.getElementById('simParameterDiv').classList.add('hidden');
         document.getElementById('extractParamDiv').classList.add('hidden');
         document.getElementById('extractionModelDiv').classList.add('hidden');
-        document.getElementById('yCutDiv').classList.add('hidden');
-        document.getElementById('xCutDiv').classList.add('hidden');
         document.getElementById('truthFuncDiv').classList.add('hidden');
         document.getElementById('hypoFuncDiv').classList.add('hidden');
         document.getElementById('extraFuncDiv').classList.add('hidden');
