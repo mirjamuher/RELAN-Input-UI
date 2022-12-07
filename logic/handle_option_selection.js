@@ -24,6 +24,10 @@ function handleOptionSelection(optionValue) {
         document.getElementById('truthFuncDiv').classList.add('hidden');
         document.getElementById('hypoFuncDiv').classList.add('hidden');
         document.getElementById('extraFuncDiv').classList.add('hidden');
+
+        // Connection-specific selection logic
+        let inclusionCriteria = document.getElementById('inclusionCriteria');
+        inclusionCriteria.value = 1;
     }
     // IMPLICATION
     else if (optionValue === '1') {
@@ -35,6 +39,10 @@ function handleOptionSelection(optionValue) {
         document.getElementById('truthFuncDiv').classList.add('hidden');
         document.getElementById('hypoFuncDiv').classList.add('hidden');
         document.getElementById('extraFuncDiv').classList.add('hidden');
+
+        // Implication-specific selection logic
+        let inclusionCriteria = document.getElementById('inclusionCriteria');
+        inclusionCriteria.value = 0;
     }
     // CONFIRMATION
     else if (optionValue === '2') {
