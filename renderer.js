@@ -16,6 +16,14 @@ document.addEventListener('DOMContentLoaded', (event) => {
         handleOptionSelection(event.target.value);
     });
 
+    // When Field Dichtomisation is set to '0', then Vector of Dichtomisation gets special treatment
+    document.getElementById('dichtomisation').addEventListener('change', event => {
+        handleDichtomisationSelection(event.target.value);
+    });
+    document.getElementById('numOfVars').addEventListener('change', event => {
+        handleNumOfVariablesChange(event.target.value);
+    });
+
     // Get FormData and save it to RELAN-IN.txt
     document.getElementById('ipcForm').addEventListener('submit', event => {
         // Step 1: Prevent form from submitting

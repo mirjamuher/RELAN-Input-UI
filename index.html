@@ -95,12 +95,12 @@
 
       <!-- Number of Variables -->
       <div class="mb-3">
-        <label for="maxm" class="form-label">Number of Variables (M):</label>
-        <input name="Number of Variables (M) (max = 100, not licensed: max = 4):" type="number" min="1" max="100" lang="en" class="form-control" id="maxm" data-free-version-max="4" required>
+        <label for="numOfVars" class="form-label">Number of Variables (M):</label>
+        <input name="Number of Variables (M) (max = 100, not licensed: max = 4):" type="number" min="1" max="100" lang="en" class="form-control" id="numOfVars" data-free-version-max="4" required>
         <div class="invalid-feedback">
           Please provide a valid number.
         </div>
-        <div id="maxmHelp" class="form-text"> 
+        <div id="numOfVarsHelp" class="form-text"> 
           <ul>
             <li>Number must be a positive integer.</li>
             <li>With the fully licensed version, number can be between 1 and 100.</li>
@@ -113,7 +113,7 @@
       <!-- Dichotomisation -->
       <div class="mb-3" id="dichtomisationDiv">
         <label class="form-label">Dichotomisation:</label>
-          <select name="Dichotomisation (0 = no,1 = yes):" class="form-select"  required>
+          <select name="Dichotomisation (0 = no,1 = yes):" class="form-select" id="dichtomisation" required>
             <option selected disabled value>Choose one:</option>
             <option value="1">Yes</option>
             <option value="0">No</option>
@@ -487,6 +487,7 @@
 
     <!-- Link to JS -->
     <script src="./logic/handle_option_selection.js"></script>
+    <script src="./logic/handle_dichtomisation_selection.js"></script>
     <script src="./logic/file_input.js"></script>
     <script src="./logic/file_output.js"></script>
     <script src="./renderer.js"></script>

@@ -30,7 +30,6 @@ function handleOptionSelection(optionValue) {
         document.getElementById('simParameterDiv').classList.add('hidden');
         document.getElementById('extractParamDiv').classList.add('hidden');
         document.getElementById('extractionModelDiv').classList.add('hidden');
-        //document.getElementById('truthFuncDiv').classList.add('hidden');
         document.getElementById('hypoFuncDiv').classList.add('hidden');
         document.getElementById('extraFuncDiv').classList.add('hidden');
 
@@ -59,7 +58,6 @@ function handleOptionSelection(optionValue) {
         // simulation-specific selection logic
         document.getElementById('truthFunc').value = 0;
     } 
-    
     else {
         console.error(`Error: invalid option value selected: ${optionValue}`);
         alert("Unknown error occurred. Please restart program. Contact Dr. Maderthaner if problem persists");
