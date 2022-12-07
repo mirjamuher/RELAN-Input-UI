@@ -65,16 +65,24 @@ function handleOptionSelection(optionValue) {
         alert("Unknown error occurred. Please restart program. Contact Dr. Maderthaner if problem persists");
     }
 
-    // set value of all hidden elements to '0'
+    // set value of all hidden elements
     document.querySelectorAll('.hidden').forEach(el => {
         var input = el.querySelector('input');
         if (input != null) {
-            input.value = '0'
+            // special Hypothetical Function & Extraction Function logic
+            if (el.id === "hypoFuncDiv" || el.id === "extraFuncDiv") {
+                input.value = 'A + B';
+            } 
+            
+            else {
+                input.value = '0';
+            }
         }
 
         var select = el.querySelector('select');
         if (select != null) {
             select.value = '0'
         }
+
     })
 }
